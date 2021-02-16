@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript"> 
+	function printDoc(){
+		print();
+	}
+	function agreeCheck(){
+		alert("약관에 동의 하셔야 합니다.");
+	}
+	
+	function dupCheck(){
+		//사용자가 입력한 id를 알아오기 ->체크->메세지
+		var id = document.getElementById("id");
+		//document라는 건 html문서를 document라 부른다.
+		//get은 알아오는데 element를 알아오겠다. id기준으로 해서.
+		//이 경우엔 id라는 id를 가진 요소를 찾는다.
+		//id기준으로 원하는 엘리먼트 찾기.
+		//<input type = "text" id = "id" name = "id"}
+		
+	//사용자가 입력한 id를 알아오기 -> 체크 ->메세지
+		if(id.value == "tommy"){	//id.value: 사용자가 입력한 값.
+			document.getElementById("msg").innerHTML="사용 중인 아이디입니다."
+			id.value = ""
+		//id가 msg인 요소를 찾으라는 뜻.
+		}else{
+			document.getElementById("msg").innerHTML="사용 가능한 아이디입니다."
+		}
+
+	}
+	function clearText(){
+		
+		document.getElementById("ta").value = ""
+	}
+	
+	function passCheck(){
+		/* document.getElementById("pass").value = "" */
+		var pass= document.getElementById("pass");
+		/* if(pass.value.length <6 || pass.value.length>10){
+			//pass.value.length (패스 안에 들어있는 밸류의 길이)
+			alert("비번은 6글자 이상 10글자 이하여야 합니다.");
+			//그 전에 잘못 입력한 건 지우기
+			pass.value = ""; //새로 입력하게 지우기.
+			pass.focus();	//다시 입력하게 그 칸으로 커서를 보냄.(커서 위치시키기)
+		} */
+		if(pass.value.length>0){	//한 글자라도 있는 경우에만 체크할 거임
+			if(pass.value.length<6||pass.value.length>10){
+				alert("비번은 6글자 이상 10글자 이하여야 합니다.");
+				//그 전에 잘못 입력한 건 지우기
+				pass.value = ""; //새로 입력하게 지우기.
+				pass.focus();	//다시 입력하게 그 칸으로 커서를 보냄.(커서 위치시키기)
+			}
+		}
+	}
+	
+	function moveNext(){
+		var idnum1 = document.getElementById("idnum1");
+		var idnum2 = document.getElementById("idnum2");
+		
+		if(idnum1.value.length >=6){	//6보다 크거나 같으면 넘겨야.
+			idnum2.focus();
+		}
+		
+	}
+</script>
+</head>
+<body><h2>회원 정보</h2>
+		
+		<form name="f1">
+		
+		 <textarea name="ta" rows="10" cols="100" readonly = "readonly">[서비스 이용약관]
+		
+		제 1장 총칙
+		
+		제 1조 목적 
+		이 약관은 (주)마이드림(이하 "회사")가 제공하는 마이드림 및 마이드림 관련 제반 서비스의 이용과 관련하여, "회사"와 "회원"의 권리, 의무 및 책임 사항, 기타 필요한 사항을 규정함을 목적으로 합니다. 
+		
+		제 2조 정의 
+		이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 
+		  1. 서비스 : 구현되는 단말기(PC, TV, 휴대형 단말기 등 각종 유·무선 장치를 포함)와 관계없이 "회원"이 이용할 수 있는 마이드림 및 마이드림 관련 제반 서비스 
+		  2. 회원 : "회사"의 "서비스"에 접속하여 이 약관에 따라 "회사"와 이용 계약을 체결하고, "회사"가 제공하는 "서비스"를 이용하는 고객 
+		  3. 아이디(ID) : "회원"의 식별과 "서비스" 이용을 위하여 "회원"이 정하고 "회사"가 승인하는 문자와 숫자의 조합 
+		  4. 비밀번호 : "회원"이 부여받은 "아이디(ID)"와 일치되는 "회원"임을 확인할 목적으로, "회원" 자신이 정한 문자 또는 숫자의 조합 
+		  5. 게시물 : "회원"이 "서비스"를 이용하면서 "서비스" 상에 게시한 글, 사진, 동영상, 음성 및 각종 파일 및 링크 등(형태와 유형을 제한하지 않음) 
+		  6. 유료 서비스 : "회사"가 유료로 제공하는 각종 온라인 디지털 콘텐츠(각종 정보 콘텐츠 및 특정 "서비스"에 대한 확장·추가 기능 포함) 및 제반 서비스 
+		
+		</textarea><br/><br/>
+		<input type="radio" name="agree" id="on" checked="checked">약관에 동의 합니다 &nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" name="agree" id="off" onclick="agreeCheck()" >약관에 동의 하지 않습니다 
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type=button name=printbutton2 value="약관인쇄" onclick="printDoc()"><br><br>
+		
+		  아이디:<input type="text" id="id">
+		  <input type=button name=dupcheck value="중복체크" onclick="dupCheck()" >
+		  <span id="msg">qqq</span>
+		  <br><br>
+		  패스워드: 	<input type="password" name="pw" maxlegth="10" id="pass" onblur = "passCheck()">]
+		  
+		  <!-- 아이디가 있으면 자바스크립트에서 찾을 수 있다! -->
+		  (최소 6글자이상 10글자 이내)
+		  <br/><br>
+		  주민번호: <input type=text id=idnum1 onkeyup="moveNext()">-<input type=password id=idnum2><br>
+		  주소: <input type="text" id="addr" disabled="disabled">	<!-- 정확하게 쓰려면 속성이름에다 속성 쓰는게 정확. -->
+		  <input type="button" value="주소찾기" onclick="findAddress()"><br>
+		  <br>
+		  <textarea rows=10 cols= 80 id="ta" onfocus="clearText()">남기실 말씀...</textarea>
+		  
+		  <br>
+		
+		  <input type=button name=submitbutton value="회원가입" onclick="totalcheck()">
+		  <input type=reset name=submitbutton value="원래대로" >
+		  <br><br>		
+		</form>
+		
+		</body>
+		</html>
+
+		
+		
+		
+		
+		
