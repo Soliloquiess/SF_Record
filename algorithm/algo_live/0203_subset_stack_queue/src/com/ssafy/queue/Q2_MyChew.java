@@ -25,9 +25,9 @@ public class Q2_MyChew {
 			N -= availableCnt;
 			
 			if(N==0) {
-				System.out.println("ë§ˆì§€ë§‰ ë§ˆì´ì®¸ë¥¼ ê°€ì ¸ê°„ ì‚¬ëŒ : "+p[0]+","+availableCnt+"ê°œ");
+				System.out.println("¸¶Áö¸· ¸¶ÀÌÂé¸¦ °¡Á®°£ »ç¶÷ : "+p[0]+","+availableCnt+"°³");
 			}else {
-				System.out.println(p[0]+"ë²ˆ ì‚¬ëŒì´ ë§ˆì´ì®¸ë¥¼ ê°€ì ¸ê°‘ë‹ˆë‹¤. ë‚¨ì€ê°œìˆ˜ : "+N+"ê°œ");
+				System.out.println(p[0]+"¹ø »ç¶÷ÀÌ ¸¶ÀÌÂé¸¦ °¡Á®°©´Ï´Ù. ³²Àº°³¼ö : "+N+"°³");
 				p[1]++;
 				queue.offer(p);
 				queue.offer(new int[] {++person,1});

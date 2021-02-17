@@ -21,7 +21,7 @@ public class CombinationTest {
 			System.out.println(Arrays.toString(numbers));
 			return;
 		}
-		for (int i=start; i <=N; i++) { // i:ì‹œë„í•˜ëŠ” ìˆ˜
+		for (int i=start; i <=N; i++) { // i:½ÃµµÇÏ´Â ¼ö
 			numbers[cnt] = i;
 			combination(cnt+1,i+1);
  		}

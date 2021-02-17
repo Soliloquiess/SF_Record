@@ -11,11 +11,11 @@ public class Q1_QueueAPITest {
 		
 		Queue<String> queue = new LinkedList<String>();
 		System.out.println(queue.isEmpty()+"//"+queue.size());
-		queue.offer("ê¹€íƒœí¬");
-		queue.offer("ìœ¤ì´ì§„");
-		queue.offer("ë…¸íš¨ì§„");
-		queue.offer("ë³€ì„±ë¬¸");
-		queue.offer("ìµœìš°ì„ ");
+		queue.offer("±èÅÂÈñ");
+		queue.offer("À±ÀÌÁø");
+		queue.offer("³ëÈ¿Áø");
+		queue.offer("º¯¼º¹®");
+		queue.offer("ÃÖ¿ì¼±");
 		
 		System.out.println(queue.isEmpty()+"//"+queue.size());
 		System.out.println(queue.peek());

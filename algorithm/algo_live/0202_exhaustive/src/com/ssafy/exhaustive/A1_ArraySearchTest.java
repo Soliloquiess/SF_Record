@@ -15,7 +15,7 @@ public class A1_ArraySearchTest {
 		ROW = arr.length;
 		COL = arr[0].length;
 		
-		System.out.println("ì§€ê·¸ì¬ê·¸ íƒìƒ‰");
+		System.out.println("Áö±×Àç±× Å½»ö");
 		searchByZigzag0();
 		searchByZigzag();
 	}

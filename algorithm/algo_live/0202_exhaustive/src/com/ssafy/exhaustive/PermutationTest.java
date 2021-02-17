@@ -23,7 +23,7 @@ public class PermutationTest {
 			System.out.println(Arrays.toString(numbers));
 			return;
 		}
-		for (int i = 1; i <= N; i++) { // i:ì‹œë„í•˜ëŠ” ìˆ«ìž
+		for (int i = 1; i <= N; i++) { // i:½ÃµµÇÏ´Â ¼ýÀÚ
 			if(isSelected[i]) continue;
 			
 			numbers[cnt] = i;

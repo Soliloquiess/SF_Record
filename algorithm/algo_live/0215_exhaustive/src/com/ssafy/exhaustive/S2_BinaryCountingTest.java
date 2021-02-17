@@ -23,8 +23,8 @@ public class S2_BinaryCountingTest {
 	
 	private static void generateSubset(int caseCount) {
 		
-		for (int flag = 0; flag < caseCount; flag++) { // flag : ë¹„íŠ¸ë§ˆìŠ¤í¬ë˜ì–´ ìžˆëŠ” ìˆ˜
-			for (int j = 0; j < N; j++) { // ë§¨ë’¤ë¶€í„° Nê°œì˜ ë¹„íŠ¸ì—´ì„ í™•ì¸
+		for (int flag = 0; flag < caseCount; flag++) { // flag : ºñÆ®¸¶½ºÅ©µÇ¾î ÀÖ´Â ¼ö
+			for (int j = 0; j < N; j++) { // ¸ÇµÚºÎÅÍ N°³ÀÇ ºñÆ®¿­À» È®ÀÎ
 				if((flag & 1<<j) != 0) {
 					System.out.print(input[j]+" ");
 				}else {

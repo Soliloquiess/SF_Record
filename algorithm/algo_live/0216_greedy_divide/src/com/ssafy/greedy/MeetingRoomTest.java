@@ -63,10 +63,10 @@ public class MeetingRoomTest {
 	}
 	
 	public static List<MeetingRoom> getSchedule(MeetingRoom[] m){
-		ArrayList<MeetingRoom> list = new ArrayList<MeetingRoom>(); // ë°°ì •ëœ íšŒì˜
+		ArrayList<MeetingRoom> list = new ArrayList<MeetingRoom>(); // ¹èÁ¤µÈ È¸ÀÇ
 		
 		Arrays.sort(m);		
-		list.add(m[0]); // ì²«íšŒì˜ëŠ” ë¬´ì¡°ê±´ ë°°ì •
+		list.add(m[0]); // Ã¹È¸ÀÇ´Â ¹«Á¶°Ç ¹èÁ¤
 		for (int i = 1,size=m.length; i < size; i++) {
 			if(list.get(list.size()-1).end <= m[i].start) {
 				list.add(m[i]);

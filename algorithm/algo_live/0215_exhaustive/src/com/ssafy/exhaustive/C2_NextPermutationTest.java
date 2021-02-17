@@ -17,7 +17,7 @@ public class C2_NextPermutationTest {
 		R = sc.nextInt();
 		
 		input = new int[N];
-		P = new int[N]; // N í¬ê¸°ì˜ flag ë°°ì—´
+		P = new int[N]; // N Å©±âÀÇ flag ¹è¿­
 		
 		for (int i = 0; i < N; i++) {
 			input[i] = sc.nextInt();

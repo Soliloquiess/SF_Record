@@ -18,10 +18,10 @@ public class R3_HanoiTest {
 		
 		if(cnt==0) return;
 		
-		//n-1ê°œ ì›íŒ ì´ë™
+		//n-1°³ ¿øÆÇ ÀÌµ¿
 		hanoi(cnt-1, from, to, temp);
 		System.out.println(cnt+":"+from+"->"+to);
-		//n-1ê°œ ì›íŒ ì´ë™
+		//n-1°³ ¿øÆÇ ÀÌµ¿
 		hanoi(cnt-1, temp, from, to);
 		
 	}

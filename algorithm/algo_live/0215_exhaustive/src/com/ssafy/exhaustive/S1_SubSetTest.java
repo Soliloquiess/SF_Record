@@ -20,10 +20,10 @@ public class S1_SubSetTest {
 			input[i] = sc.nextInt();
 		}
 		generateSubset(0);
-		System.out.println("ì´ ê²½ìš°ì˜ ìˆ˜ : "+totalCnt);
+		System.out.println("ÃÑ °æ¿ìÀÇ ¼ö : "+totalCnt);
 	}
 	
-	// í˜„ ì›ì†Œë¥¼ ë¶€ë¶„ì§‘í•©ì˜ êµ¬ì„±ì— ë°˜ì˜
+	// Çö ¿ø¼Ò¸¦ ºÎºĞÁıÇÕÀÇ ±¸¼º¿¡ ¹İ¿µ
 	private static void generateSubset(int cnt) {
 		if(cnt == N) {
 			++totalCnt;
@@ -34,10 +34,10 @@ public class S1_SubSetTest {
 			return;
 		}
 		
-		// ì„ íƒ
+		// ¼±ÅÃ
 		isSelected[cnt] = true;
 		generateSubset(cnt+1);
-		// ë¹„ì„ íƒ
+		// ºñ¼±ÅÃ
 		isSelected[cnt] = false;
 		generateSubset(cnt+1);
 	}

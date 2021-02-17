@@ -25,7 +25,7 @@ public class CompleteBinaryTree {
 	}
 	public void add(char e) {
 		if(isFull()) {
-			System.out.println("í¬í™”ìƒíƒœì…ë‹ˆë‹¤.");
+			System.out.println("Æ÷È­»óÅÂÀÔ´Ï´Ù.");
 			return;
 		}
 		nodes[++lastIndex] = e;
@@ -35,7 +35,7 @@ public class CompleteBinaryTree {
 		
 		if(isEmpty()) return;
 		
-		// íƒìƒ‰ìˆœì„œë²ˆí˜¸ë¥¼ íë¡œ ê´€ë¦¬
+		// Å½»ö¼ø¼­¹øÈ£¸¦ Å¥·Î °ü¸®
 		Queue<Integer> queue = new LinkedList<Integer>(); 
 		queue.offer(1);
 		int current;
@@ -51,7 +51,7 @@ public class CompleteBinaryTree {
 		
 		if(isEmpty()) return;
 		
-		// íƒìƒ‰ìˆœì„œë²ˆí˜¸ë¥¼ íë¡œ ê´€ë¦¬
+		// Å½»ö¼ø¼­¹øÈ£¸¦ Å¥·Î °ü¸®
 		Queue<Integer> queue = new LinkedList<Integer>(); 
 		queue.offer(1);
 		int current,size,level=0;
@@ -70,32 +70,32 @@ public class CompleteBinaryTree {
 		}
 	}
 	
-	// ì „ìœ„ìˆœíšŒ
+	// ÀüÀ§¼øÈ¸
 	public void dfs(int current) {
 		if(current>lastIndex) return;
 		
 		//VLR
-		System.out.println(nodes[current]); // ë°©ë¬¸ ê´€ë ¨ ì²˜ë¦¬
+		System.out.println(nodes[current]); // ¹æ¹® °ü·Ã Ã³¸®
 		dfs(current*2);
 		dfs(current*2+1);
 	}
-	// ì¤‘ìœ„ìˆœíšŒ
+	// ÁßÀ§¼øÈ¸
 	public void dfs2(int current) {
 		if(current>lastIndex) return;
 		
 		//LVR
 		dfs2(current*2);
-		System.out.println(nodes[current]); // ë°©ë¬¸ ê´€ë ¨ ì²˜ë¦¬
+		System.out.println(nodes[current]); // ¹æ¹® °ü·Ã Ã³¸®
 		dfs2(current*2+1);
 	}
-	// í›„ìœ„ìˆœíšŒ
+	// ÈÄÀ§¼øÈ¸
 	public void dfs3(int current) {
 		if(current>lastIndex) return;
 		
 		//LRV
 		dfs3(current*2);
 		dfs3(current*2+1);
-		System.out.println(nodes[current]); // ë°©ë¬¸ ê´€ë ¨ ì²˜ë¦¬
+		System.out.println(nodes[current]); // ¹æ¹® °ü·Ã Ã³¸®
 	}
 	
 	
