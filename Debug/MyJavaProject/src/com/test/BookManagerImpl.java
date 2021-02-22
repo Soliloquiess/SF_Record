@@ -19,8 +19,8 @@ public class BookManagerImpl implements IBookManager {
 	IBookManager instance;
 	
 	/* 기본 생성자 */
-	 BookManagerImpl() { // 외부에서 객체 생성을 하지 못하도록 접근 제어자 지정
-					
+	private BookManagerImpl() { // 외부에서 객체 생성을 하지 못하도록 접근 제어자 지정
+				loadData(;)
 	}
 	 
 	/* 내부에서 생성한 객체의 참조값을 반환한다. */
@@ -36,14 +36,16 @@ public class BookManagerImpl implements IBookManager {
 	@Override
 	public void remove(String isbn){
 		final int size = books.size();	// 저장되어 있는 도서개수 확인
-		for (int i = 0; i < size; ++i) {
+		int i;
+		for ( i = 0; i < size; ++i) {
 			// 삭제할 도서를 찾았다면 해당 도서 위치를 이용하여 리스트에서 도서 삭제
 			if (books.get(i).getIsbn().equals(isbn)) {
 				books.remove(i);
 				break;
 			}
 		}
-		
+		if(i == size)
+			System.out.println("remove error!");
 	}
 	
 	@Override
@@ -54,7 +56,8 @@ public class BookManagerImpl implements IBookManager {
 	@Override
 	public Book searchByIsbn(String isbn) {		
 		for (Book book : books) {
-			if(book.getIsbn().equals(isbn)) return book;
+			if(book.getIsbn().equals(isbn)) 
+				return book;
 		}
 		return null;
 	}
@@ -135,5 +138,17 @@ public class BookManagerImpl implements IBookManager {
 			throw new ISBNNotFoundException(isbn); //고유번호 도서 조회 실패시 ISBNNotFoundException 사용자 정의 예외 발생시킴
 		
 		book.setQuantity(book.getQuantity() + quantity);// 구매 후의 새로운 재고 수량 계산하여 재고 수량 변경 
+	}
+
+	@Override
+	public ArrayList<Book> sortedByIsbn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Book> sortedByTitle() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }

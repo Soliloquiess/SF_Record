@@ -1,10 +1,12 @@
 package com.test;
 
+//import com.ex.Book;
+
 /**
  * 잡지 정보를 나타내는 클래스
  * Book 클래스를 상속 받음
  */
-public class Magazine   {
+public class Magazine extends Book   {
 	/**
 	 * 발행년도
 	 */
@@ -15,12 +17,18 @@ public class Magazine   {
 	private int month;
 	
 	/** 기본 생성자 */
+	public Magazine() {}
 	
+	public Magazine(String isbn, String title, String author, String publisher, int price, String desc, int year, int month,int quantity) {
+		super(isbn, title, author, publisher, price, desc, quantity);
+		this.year = year;
+		this.month = month;
+	}
 	
 	/** 잡지 정보 모두를 받아 생성하는 생성자 */
-	public Magazine(String isbn, String title, String author, String publisher, int price, String desc, int year, int month,int quantity) {
-		
-	}
+//	public Magazine(String isbn, String title, String author, String publisher, int price, String desc, int year, int month,int quantity) {
+//		
+//	}
 	
 	public int getYear() {
 		return year;
