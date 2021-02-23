@@ -1,0 +1,19 @@
+package com.thread;
+
+public class TheradClock implements Runnable {
+	
+	ThreadClock(){
+		Thread t  =  new Thread();
+		t.start();
+	}
+	
+	public static void main(String[] args) {
+		new TheradClock();
+	}
+	
+	//thread 작업내용. 1초간격으로 화면에 시간 출력하기
+	@Override 
+	public void run() {
+		
+	}
+}

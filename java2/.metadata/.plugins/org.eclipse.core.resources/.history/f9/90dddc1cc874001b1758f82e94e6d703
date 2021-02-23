@@ -1,0 +1,15 @@
+package com.thread;
+
+
+//1.쓰레드 클래스 상속 받아서 쓰레드 만드는 방법
+class Tiger extends Thread{
+	//run(): thread가 해야할 작업 내용을 가지고 있는 메서드
+	public void run() {
+		System.out.println("thread is running..." + getName()););
+	}
+}
+public class TigerTest {
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,13 @@
+package com.thread;
+
+class Car{}
+public class MainThreadTest extends Car{
+	
+	
+	
+	public static void main(String[] args) {
+		
+	}
+	@Override 
+	public void run() { //thread 작업 내용
+}

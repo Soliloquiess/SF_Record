@@ -1,0 +1,21 @@
+package com.thread;
+
+class Car{}
+public class MainThreadTest extends Runnable{
+	
+	MainThreadTest(){// 생성자 
+		// 생성해서 시작시키기
+		Thread t = new Thread();
+	}
+	
+	public void go() {
+		System.out.println("gogo");
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+	@Override 
+	public void run() { //thread 작업 내용
+	}
+}

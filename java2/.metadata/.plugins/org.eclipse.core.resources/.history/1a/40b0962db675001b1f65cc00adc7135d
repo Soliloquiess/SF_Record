@@ -1,0 +1,13 @@
+package com.xml.sax;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+//sax 방식으로 파싱작업 해주는 클래스.
+//DefaultHander
+//<title>hello</title>
+public class BookSAXParser extends DefaultHandler{
+	//시작 엘리멘트를 만난 경우 호출됨
+	
+	
+	//종료 엘리먼트를 만난 경우 호출 됨.
+}

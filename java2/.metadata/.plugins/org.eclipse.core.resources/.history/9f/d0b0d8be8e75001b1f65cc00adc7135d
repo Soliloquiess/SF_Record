@@ -1,0 +1,38 @@
+package com.swing;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class SwingTest {
+	JFrame f; //창
+	JButton ok,cancel;
+	
+	public static void main(String[] args) {
+		new SwingTest().gui();
+	}
+
+	//화면구성
+	private void gui() {
+		// TODO Auto-generated method stub
+		//1. 창 만들기
+		f = new JFrame("스윙 테스트입니다.");
+		//2.창닫기 버튼 클릭했을떄의 동작 지정
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		//EXIT_ON_CLOSE 이 부분 클래스 이름으로 쓴거 보니까 스태틱 이름 같다.
+		//close 버튼 눌렀을때 프로그램 종료해라.
+		//3.배치 관리자 지정
+		f.setLayout(new FlowLayout());
+		//4.화면 구성할 내용물 지정
+		ok = new JButton("확인");
+		cancel = new JButton("취소");
+		//5.만든 내용물들을 화면에 붙이기
+		Container c = f.getContentPane();
+		c.add(ok);
+		
+		
+		
+	}
+}

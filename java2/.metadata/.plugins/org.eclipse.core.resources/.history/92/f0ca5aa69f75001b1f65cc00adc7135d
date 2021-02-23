@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  실습 #05  이거도 메모장 파일에 존재-->
+<!--  virus-report.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<virus-report>
+	<author>SSAFY</author>
+	<about>COVID-19</about>
+	<date>
+		<year>2020</year>
+		<month>03</month>
+		<day>26</day>
+	</date>
+</virus-report>

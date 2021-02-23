@@ -1,0 +1,8 @@
+package com.xml.sax;
+
+public class BookSAXParsingTest {
+	public static void main(String[] args) throws Exception{
+		//SAX PARSER 가 필요함.(SAX 방식으로 파싱하니까)
+		
+	}
+}

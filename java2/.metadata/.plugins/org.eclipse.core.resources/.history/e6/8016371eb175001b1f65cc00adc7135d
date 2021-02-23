@@ -1,0 +1,101 @@
+package com.swing;
+
+
+import java.awt.BorderLayout;
+//이벤트 처리 Listener(interface) 사용.
+//ok를 클릭 -> actionEvent 발생 -> ACtionLister가 처리.
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+//a.클래스 선언 시에 리스너 표시
+//ActionListener가 인터페이스인데 추상 메서드가 없다 그래서 직접 만들어 줘야 한다.
+public class ChatTest implements ActionListener {
+	JFrame f; //창
+	JButton ok;
+	JTextField tf;	//1줄 입력 칸
+	JTextArea ta;	//여러줄 입력칸
+	
+	public static void main(String[] args) {
+		new ChatTest().gui();
+	}
+
+	//화면구성
+	private void gui() {
+		//1. 창 만들기
+		f = new JFrame("채팅 테스트.");
+		//2.창닫기 버튼 클릭했을떄의 동작 지정(닫기 버튼 클릭 시 프로그램 종료) 이건 디폴트
+		//막 얼럿창 마냥 물어보게 하려면 추가작업 필요.
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		//이 걸 안하면 닫기버튼 눌러도 종료가 안됨. 창만 사라지고 백그라운드에서 계속 돌고 있음.
+		//창을 만들게 되면 내부에서 화면에 계속 내용을 뿌려줌.
+		//자동 종료가 안 됨.
+		
+		//EXIT_ON_CLOSE 이 부분 클래스 이름으로 쓴거 보니까 스태틱 이름 같다.
+		//close 버튼 눌렀을때 프로그램 종료해라.
+		//3.배치 관리자 지정(배치관리자 지정 안하면 기본이 보더) 사실 없어도 되기는 함.
+		f.setLayout(new BorderLayout()); //전체화면을 동서남북중앙(5개)영역으로 나눠 씀.
+		//4.화면 구성할 내용물 지정
+		ok = new JButton("확인");
+		tf = new JTextField(30);//30
+		//글자 정도 들어가는 1줄 입력칸.
+		ta = new JTextArea(10,30); //10행,30글자 정도 들어가는 여러줄 입력칸.
+		JScrollPane  scroll = new JScrollPane();//pane으로 끝나니까 또 무슨 판일듯.
+		ta.setEditable(false);//편집 못하니까 사용자가 직접 입력할 순 없고 
+		//사용자 직접 익렵 안됨.
+		
+		
+		//c. 사건이 발생하는 대상에게 감시자 등록시켜 놓기
+		//(): 사건이 발생시 처리할 메서드를 가진 객체
+		ok.addActionListener(this);// 내가 가지고 있다.
+//		tf.addActionListener(l);
+//		ok.addActionListener(new Test());
+		
+		
+		//J는 스윙일때 앞에 붙여주는 접두사.
+		//5.만든 내용물들을 화면에 붙이기
+		Container c = f.getContentPane();
+		c.add(ok,"North");
+//		c.add(ta,"center");
+		c.add(scroll,"Center");//여기를 scroll로 겨쳐줘야.
+		c.add(tf,"South");
+		//6.창크기 지정 후 가시성 지정.
+		f.setSize(600,600);
+		f.setVisible(true);
+	}
+	
+	
+	//b.ActionListener의 추상 메서드 구현
+	//사건이 발생 했을 떄 처리할 내용을
+	//actionPerformed: callback 메서드
+	//callback 메서드  간접적으로 호출되는거. 어떤 조건이 만족 되어야 실행. 직접 실행은 ㅇ나함.
+	
+	//ok든 tf든 사건 발생하면 다 여기로 온다.
+	@Override	
+	public void actionPerformed(ActionEvent e) { //사건이 정말 일어났을 떄 처리하는 메서드가 여기있다.
+		Object o = e.getSource();//소스(이벤트 발생 대상)를 알아냄
+		
+		if(o ==ok) {
+			System.out.println("hi");
+		}	
+		else if(o==tf) {	//tf
+			//1. tf안의 입력된 글자 알아내기
+			String msg = tf.getText();
+			//2. 알아낸 글자를 ta에 붙이기
+			ta.append(msg);
+			//3. tf 내용 지우기
+			tf.setText("");
+		}
+			
+	}
+}

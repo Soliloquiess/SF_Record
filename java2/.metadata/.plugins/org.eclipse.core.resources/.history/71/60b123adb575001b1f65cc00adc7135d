@@ -1,0 +1,9 @@
+package com.xml.sax;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+//sax 방식으로 파싱작업 해주는 클래스.
+//DefaultHander
+public class BookSAXParser extends DefaultHandler{
+
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE virus-report SYSTEM "virus-report.dtd">
+<!--  실습 #05  이거도 메모장 파일에 존재-->
+<!--  virus-report.xml -->
+<!-- dtd부분이 보이지 않아서 문법 체크 하자. dtd 부분 추가해야 문서가 valid한지 체크 가능. -->
+<virus-report>
+	<author>SSAFY</author>
+	<about>COVID-19</about>
+	<date>
+		<year>2020</year>
+		<month>03</month>
+		<day>26</day>
+	</date>
+</virus-report>
+
