@@ -1,0 +1,66 @@
+package com.ssafy.happyhouse.model.dao;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ssafy.happyhouse.model.dto.PageInfo;
+
+public class PageImpl implements PageDao{
+	List<PageInfo> list = new ArrayList<>();
+	
+	private static PageImpl instance;
+	private PageImpl(){
+		
+	}
+	
+	public static PageImpl getInstance() {
+		if(instance == null) instance = new PageImpl();
+		return instance;
+	}
+
+	@Override
+	public void create() {
+		String csvFileName = "." + File.separator + "res" + File.separator + "Pannel.csv";
+		try (BufferedReader br = new BufferedReader(new FileReader(csvFileName))) {
+		    String line;
+
+		    while ((line = br.readLine()) != null) {
+		    	PageInfo tmp = new PageInfo();
+		    	
+		    	String[] values = line.split("\\|");
+		    	
+		    	tmp.setName(values[1]);
+		    	tmp.setSelection(values[6]);
+		    	tmp.setAddress(values[24]);
+		    	tmp.setHard(values[37]);
+		    	tmp.setLati(values[38]);
+		    	list.add(tmp);
+		    }
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public List<PageInfo> check(String dong) {
+		List<PageInfo> data = new ArrayList<>();
+		for(PageInfo pen : list) {
+//			System.out.println(pen.getAddress());
+//			System.out.println(dong);
+//			System.out.println(pen.getAddress().contains(dong));
+			if(pen.getAddress().contains(dong)) {
+				data.add(pen);
+			}
+		}
+		return data;
+	}
+
+}

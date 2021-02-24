@@ -1,0 +1,11 @@
+package com.ssafy.happyhouse.model.dto;
+
+import java.util.List;
+import com.ssafy.happyhouse.model.dto.PannelInfo;
+
+public interface PabDAO {
+	void create();
+	
+	List<PageDAO> search(String dong);
+	
+}

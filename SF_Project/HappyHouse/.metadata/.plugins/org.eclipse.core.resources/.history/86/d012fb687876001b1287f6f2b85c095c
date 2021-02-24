@@ -1,0 +1,46 @@
+package com.ssafy.happyhouse.model.dao;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ssafy.happyhouse.model.dto.EnvironmentInfo;
+import com.ssafy.happyhouse.model.dto.PageInfo;
+
+public class EnvironmentImpl implements EnvironmentDao {
+
+	List<EnvironmentInfo> list = new ArrayList<>();
+
+	private static EnvironmentImpl object;
+
+	private EnvironmentImpl() {
+
+	}
+
+	public static EnvironmentImpl getInstance() {
+		if (object == null)
+			object = new EnvironmentImpl();
+		return object;
+	}
+
+	@Override
+	public void create() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	@Override
+	public List<EnvironmentInfo> check(String dong) {
+		List<EnvironmentInfo> data = new ArrayList<>();
+		for(EnvironmentInfo env : list) {
+			if(env.getAddress().contains(dong)) {
+				data.add(env);
+			}
+		}
+		return data;
+	}
+
+	
+
+}

@@ -1,0 +1,42 @@
+package com.ssafy.happyhouse.model.dao;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ssafy.happyhouse.model.dto.PageInfo;
+
+public class PageImpl implements PageDao{
+	List<PageInfo> list = new ArrayList<>();
+	
+	private static PageImpl member;
+	private PageImpl(){
+		
+	}
+	
+	public static PageImpl getInstance() {
+		if(member == null) member = new PageImpl();
+		return member;
+	}
+
+
+	@Override
+	public void create() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public List<PageInfo> check(String dong) {
+		List<PageInfo> data = new ArrayList<>();
+		for(PageInfo pen : list) {
+			if(pen.getAddress().contains(dong)) {
+				data.add(pen);
+			}
+		}
+		return data;
+	}
+
+	
+
+}

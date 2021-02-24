@@ -1,0 +1,11 @@
+package com.ssafy.happyhouse.model.dto;
+
+import java.util.List;
+import com.ssafy.happyhouse.model.dto.PageInfo;
+
+public interface PageDao {
+	void create();
+	
+	List<PageDao> search(String dong);
+	
+}
