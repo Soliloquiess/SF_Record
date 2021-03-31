@@ -1,0 +1,55 @@
+package SWEA;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class SWEA_8382_방향전환 {
+	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder output = new StringBuilder();
+	static StringTokenizer tokens;
+
+	static int T;
+	static Queue <Point> q;
+	//원점을 0,0으로보지말고 100,100으로 보자 (양수밖에 표현 못하니까.
+	static int x1,y1,x2,y2;
+	public static void main(String[] args) throws IOException {
+		input = new BufferedReader(new StringReader(src));
+		T = Integer.parseInt(input.readLine());
+		for (int t = 1; t <= T; t++) {
+			tokens = new StringTokenizer(input.readLine(), " ");
+			
+			 x1 = Integer.parseInt(tokens.nextToken())+100;
+			 y1 = Integer.parseInt(tokens.nextToken())+100;
+			
+			 x2 = Integer.parseInt(tokens.nextToken())+100;
+			 y2 = Integer.parseInt(tokens.nextToken())+100;
+			 
+			 q = new LinkedList<>();
+			 //수평으로 수직으로 어디든 갈 수 있다.
+			 q.add(new Point(x1,y1,true));
+			 q.add(new Point(x1,y1,false));
+			 
+		}
+	}
+			
+	//어떤방향으로 해도 된다. = 그냥 모든 방향 다 해봐야 한다.
+	static class Point{
+		int r, c;
+		boolean isHor;
+	}
+	
+	
+	
+	private static String src = "\r\n" + 
+			"3\r\n" + 
+			"0 0 1 0\r\n" + 
+			"-1 -1 0 0\r\n" + 
+			"0 0 0 2";
+}
+

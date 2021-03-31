@@ -1,0 +1,38 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Algo2_±§¡÷_4π›_¡∂æÁ»∆ {
+	
+		
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int arr[40000];
+		int i;
+		for(i=0;i<N;i++) {
+			arr[i]=sc.nextInt();
+		}
+//		int [] weight = {1,2,4,5,2};	//test
+		
+		int M = sc.nextInt();
+		for(i=0;i<M;i++) {
+		}
+		Arrays.sort(weight);
+		if( weight[0]!=1) 
+			return 1;
+		int sum [] = new int[weight.length];
+		int tempsum = 0;
+		for(int i =0; i< weight.length;i++) {
+			tempsum +=weight[i];
+			sum[i] = tempsum;
+			if(i<weight.length-1 && sum[i]+1<weight[i+1])
+			{
+				return sum[i]+1;
+			}
+		}
+		
+		return sum[sum.length-1]+1;
+	}
+		System.out.println((weight));
+	}
+}

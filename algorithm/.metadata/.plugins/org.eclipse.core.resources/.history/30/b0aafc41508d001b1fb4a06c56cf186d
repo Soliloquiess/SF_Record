@@ -1,0 +1,41 @@
+package SWEA;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class SWEA_8382_방향전환 {
+	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder output = new StringBuilder();
+	static StringTokenizer tokens;
+
+	static int T;
+	
+	//원점을 0,0으로보지말고 100,100으로 보자 (양수밖에 표현 못하니까.
+
+	public static void main(String[] args) throws IOException {
+		input = new BufferedReader(new StringReader(src));
+		T = Integer.parseInt(input.readLine());
+		for (int t = 1; t <= T; t++) {
+			tokens = new StringTokenizer(input.readLine(), " ");
+			
+			int x1 = Integer.parseInt(tokens.nextToken())+100;
+			int x1 = Integer.parseInt(tokens.nextToken())+100;
+			int x1 = Integer.parseInt(tokens.nextToken())+100;
+			int x1 = Integer.parseInt(tokens.nextToken())+100;
+			int x1 = Integer.parseInt(tokens.nextToken())+100;
+			
+			
+			
+	private static String src = "\r\n" + 
+			"3\r\n" + 
+			"0 0 1 0\r\n" + 
+			"-1 -1 0 0\r\n" + 
+			"0 0 0 2";
+}
+

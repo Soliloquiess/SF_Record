@@ -1,4 +1,4 @@
-package com.off.day1;
+package lecture;
 
 import java.util.Scanner;
 

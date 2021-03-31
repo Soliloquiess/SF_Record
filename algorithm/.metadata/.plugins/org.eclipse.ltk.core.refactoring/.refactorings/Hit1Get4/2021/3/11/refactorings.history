@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;DAEJEON02_KIMJAVA&apos; to &apos;GWANGJU_4_yacho&apos;&#x0D;&#x0A;- Original project: &apos;HitSsafy&apos;&#x0D;&#x0A;- Original element: &apos;DAEJEON02_KIMJAVA&apos;&#x0D;&#x0A;- Renamed element: &apos;GWANGJU_4_yacho&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DAEJEON02_KIMJAVA&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{DAEJEON02_KIMJAVA.java[DAEJEON02_KIMJAVA" matchStrategy="1" name="GWANGJU_4_yacho" qualified="false" references="true" similarDeclarations="false" stamp="1615632760889" textual="false" version="1.0"/>
+</session>

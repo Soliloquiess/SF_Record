@@ -1,11 +1,13 @@
+package lecture;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// 정해진 칼로리는 넘지 않으면서
-// 가장 선호하는 햄버거
-public class Solution {
+// �젙�빐吏� 移쇰줈由щ뒗 �꽆吏� �븡�쑝硫댁꽌
+// 媛��옣 �꽑�샇�븯�뒗 �뻹踰꾧굅
+public class sw5215_recurhambur {
     private static final BufferedReader BUFFERED_READER = new BufferedReader(new InputStreamReader(System.in));
     private static final StringBuilder STRING_BUILDER = new StringBuilder();
 

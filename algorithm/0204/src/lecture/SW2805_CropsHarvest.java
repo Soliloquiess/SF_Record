@@ -1,11 +1,11 @@
-package it.crops;
+package lecture;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 이차원배열, 규칙이용하여 처리
-// 2805. 농작물 수확하기
+// �씠李⑥썝諛곗뿴, 洹쒖튃�씠�슜�븯�뿬 泥섎━
+// 2805. �냽�옉臾� �닔�솗�븯湲�
 public class SW2805_CropsHarvest {
 
 	private static int map[][], N, center;
@@ -17,31 +17,31 @@ public class SW2805_CropsHarvest {
 		int T = in.nextInt();
 
 		for (int t = 1; t <= T; ++t) {
-			N = in.nextInt();//항상 홀수
+			N = in.nextInt();//�빆�긽 ���닔
 			map = new int[N][N];			
-			center = N / 2;//중앙위치 알아내기.
+			center = N / 2;//以묒븰�쐞移� �븣�븘�궡湲�.
 
-			//map 배열에 데이터 입력
+			//map 諛곗뿴�뿉 �뜲�씠�꽣 �엯�젰
 			for (int i = 0; i < N; ++i) {
-				char[] temp = in.next().toCharArray();//한줄 읽어 배열로 저장				
+				char[] temp = in.next().toCharArray();//�븳以� �씫�뼱 諛곗뿴濡� ���옣				
 				for (int j = 0; j < N; ++j) {
-					map[i][j] = temp[j] - '0';//char타입의 숫자-> 정수형 타입 숫자로 변환. '1'-'0' =>코드값으로 연산
+					map[i][j] = temp[j] - '0';//char���엯�쓽 �닽�옄-> �젙�닔�삎 ���엯 �닽�옄濡� 蹂��솚. '1'-'0' =>肄붾뱶媛믪쑝濡� �뿰�궛
 				}
-			}//입력끝
+			}//�엯�젰�걹
 			
 			int harvest = 0, begin, end, gap = 0;			
-			for (int i = 0; i < N; ++i) {//행.아래로 내려갈거임. begin~end 인덱스 위치값 수확하기				
+			for (int i = 0; i < N; ++i) {//�뻾.�븘�옒濡� �궡�젮媛덇굅�엫. begin~end �씤�뜳�뒪 �쐞移섍컪 �닔�솗�븯湲�				
 				begin = center - gap;
 				end = center + gap;
 				
-				for (int j = begin; j <= end; ++j) {//열. 가로로 값들 더하기
-					harvest += map[i][j];//i 고정된 상태에서 j 바꿔가면서 더하기
+				for (int j = begin; j <= end; ++j) {//�뿴. 媛�濡쒕줈 媛믩뱾 �뜑�븯湲�
+					harvest += map[i][j];//i 怨좎젙�맂 �긽�깭�뿉�꽌 j 諛붽퓭媛�硫댁꽌 �뜑�븯湲�
 				}
 				
-				if (i < center) {//i가 행값인데 center보다 작다면 위쪽행. 세로방향 기준으로 볼때 위쪽
+				if (i < center) {//i媛� �뻾媛믪씤�뜲 center蹂대떎 �옉�떎硫� �쐞履쏀뻾. �꽭濡쒕갑�뼢 湲곗��쑝濡� 蹂쇰븣 �쐞履�
 					gap++;				
 					
-				} else {//center는 이미 찍고 왔음. i 값이 center보다 아래쪽행 or 같으면 수확 영역을 줄여야 함
+				} else {//center�뒗 �씠誘� 李띻퀬 �솕�쓬. i 媛믪씠 center蹂대떎 �븘�옒履쏀뻾 or 媛숈쑝硫� �닔�솗 �쁺�뿭�쓣 以꾩뿬�빞 �븿
 					gap--;					
 				}
 			}

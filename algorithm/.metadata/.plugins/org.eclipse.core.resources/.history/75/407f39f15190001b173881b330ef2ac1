@@ -1,0 +1,37 @@
+import java.util.*;
+public class Main {
+	
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int N= sc.nextInt();
+		
+		int M= sc.nextInt();
+		
+		String[] arr  = new String[100];
+		int i;
+		int k=0;
+		for( i =N ; i<M; i++) {
+			arr[k++] = (Integer.toString(i));
+		}
+		for( i =0 ; i<M-N; i++) {
+			System.out.println(arr[i]);
+		}
+		
+		
+		
+		String str[] = {"eight zero","seven nine"};
+		String temp;
+		for (int q =0; q<2; q++) {
+			for(int w=0; w<2;w++) {
+				if(str[q].compareTo(str[w])>0) {
+					temp=str[q];
+					str[q] = str[w];
+					str[w] = temp;
+				}
+			}
+		}
+		for( i =0 ; i<3; i++) {
+			System.out.println(str[i]);
+		}
+	}	
+}

@@ -25,7 +25,7 @@
 		</list>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="675"/>
+		<item key="DIALOG_X_ORIGIN" value="557"/>
 		<item key="DIALOG_Y_ORIGIN" value="272"/>
 		<item key="DIALOG_WIDTH" value="836"/>
 		<item key="DIALOG_HEIGHT" value="380"/>

@@ -1,4 +1,4 @@
-package com.off.day2;
+package lecture;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

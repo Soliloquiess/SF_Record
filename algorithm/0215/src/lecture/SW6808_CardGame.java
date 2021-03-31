@@ -1,4 +1,4 @@
-package com.algo06;
+package lecture;
 
 /**
  *규영이와 인영이는 1에서 18까지의 수가 적힌 18장의 카드로 게임을 하고 있다.

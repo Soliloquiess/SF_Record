@@ -1,46 +1,84 @@
 package BOJ;
 
+import java.util.Scanner;
 
-import java.util.*;
-import java.io.*;
- 
-// https://www.acmicpc.net/problem/1182
- 
 public class BOJ_1182_부분집합의_합 {
-    static int count = 0;
-    static int s;
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
- 
-        st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        s = Integer.parseInt(st.nextToken());
- 
-        int[] arr = new int[n];
-        st = new StringTokenizer(br.readLine());
- 
-        for(int i=0; i<n; i++)
-            arr[i] = Integer.parseInt(st.nextToken());
- 
-        powerSet(arr, n, 0, 0);        
-        // s가 0 일때는 부분집합 중에 공집합인 경우도 카운트 될 수 있음
-        if(s == 0)
-            count--;
-        System.out.println(count);
-    }
- 
-    static void powerSet(int[] arr, int n, int idx, int sum) {
-        if(idx == n) {
-            if(sum == s)
-                count++;
-            return;
+    static int N, S, count=0;
+    static int[] arr;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        N= sc.nextInt();
+        S= sc.nextInt();
+        arr = new int[N];
+        for (int i = 0; i <N ; i++) {
+            arr[i] =  sc.nextInt();
         }
  
-        powerSet(arr, n, idx + 1, sum);
-        powerSet(arr, n, idx + 1, sum + arr[idx]);
+        dfs(0,0);
+ 
+        if(S==0){// count 합이 0인 경우 공집합도 포함되므로 그 수를 하나 빼주고 출력
+            count--;
+            System.out.println(count);
+        }else {
+            System.out.println(count);
+        }
+ 
+ 
+    }
+ 
+    private static void dfs(int v , int su){
+        if(v==N){// dfs로 돌며 누적시키다가 위치를 나타내는 v이 마지막 위치로 오면 원하는 값인지 아닌지 체크하여 count
+            if(su == S){
+                count++;
+            }
+            return;
+        }
+        // 부분수열, 지금 위치의 원소를 선택하거, 선택하지 않거나
+        dfs(v+1, su+arr[v]); // 지금 위치의 원소를 선택
+        dfs(v+1, su); // 선택하지 않음.
     }
 }
+
+//import java.util.*;
+//import java.io.*;
+// 
+//// https://www.acmicpc.net/problem/1182
+// 
+//public class BOJ_1182_부분집합의_합 {
+//    static int count = 0;
+//    static int s;
+//    public static void main(String[] args) throws Exception {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st;
+// 
+//        st = new StringTokenizer(br.readLine());
+//        int n = Integer.parseInt(st.nextToken());
+//        s = Integer.parseInt(st.nextToken());
+// 
+//        int[] arr = new int[n];
+//        st = new StringTokenizer(br.readLine());
+// 
+//        for(int i=0; i<n; i++)
+//            arr[i] = Integer.parseInt(st.nextToken());
+// 
+//        powerSet(arr, n, 0, 0);        
+//        // s가 0 일때는 부분집합 중에 공집합인 경우도 카운트 될 수 있음
+//        if(s == 0)
+//            count--;
+//        System.out.println(count);
+//    }
+// 
+//    static void powerSet(int[] arr, int n, int idx, int sum) {
+//        if(idx == n) {
+//            if(sum == s)
+//                count++;
+//            return;
+//        }
+// 
+//        powerSet(arr, n, idx + 1, sum);
+//        powerSet(arr, n, idx + 1, sum + arr[idx]);
+//    }
+//}
 
 /*
 비트 마스크 사용

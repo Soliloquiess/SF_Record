@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class P1_PermutationBasicTest {
 
+//4
+//1 2 3 4 
 	static int N;
 	static int[] input, numbers;
 	static boolean[] isSelected;

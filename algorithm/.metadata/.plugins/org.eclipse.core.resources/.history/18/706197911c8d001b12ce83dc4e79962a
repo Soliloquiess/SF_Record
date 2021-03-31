@@ -1,0 +1,35 @@
+package com.ssafy;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class DP_ListTest {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int [] arr = new int[N];//원소들 저장
+		int[] LIS = new int[N]; //각 원소를 마지막에 세웠을 때의 최장길이
+		
+		for(int i =0; i<N;i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+//		Arrays.fill(LIS, 1);
+		int max=0; //하나씩 값 돌때마다 max 갱신하게
+		for(int i =0; i<N; i++) {
+			LIS[i]=1;//어차피 반복 돌리니까 그냥 안에서 직접 돌리자.
+			//자기 혼자 세웠을 떄의 길이로 초기화
+			for(int j =0; j<=i-1;j++) {	//맨 앞부터 자신의 직전의 원소들과 비교
+				if(arr[j]<arr[i] && LIS[i]<LIS[j]+1) {
+					LIS[i] = LIS[j]+1;
+				}
+			}
+			if(max<LIS[i]) max = LIS[i];
+		}
+		System.out.println(max);
+		/* 4 1 4 3 2*/
+//		N2을 NlogN으로 바꾸기만 해도 대박.
+//		N이 10만이면 N2은 100억 
+//		NlogN은 10만에 대한 log10만
+	}
+}

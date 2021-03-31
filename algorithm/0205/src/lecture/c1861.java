@@ -1,4 +1,4 @@
-package com.ssafy.algo.swea;
+package lecture;
 
 import java.io.BufferedReader;
 import java.io.IOException;

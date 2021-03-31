@@ -1,4 +1,4 @@
-package com.algo04;
+package lecture;
 
 import java.util.Scanner;
 

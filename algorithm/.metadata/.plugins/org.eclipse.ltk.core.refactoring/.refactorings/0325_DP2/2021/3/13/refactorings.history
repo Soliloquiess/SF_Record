@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DP_ListTest.java&apos; to &apos;0325_DP2/src/com.ssafy&apos;&#x0D;&#x0A;- Original project: &apos;0325_DP2&apos;&#x0D;&#x0A;- Destination element: &apos;0325_DP2/src/com.ssafy&apos;&#x0D;&#x0A;- Original element: &apos;com.ssafy.DP_ListTest.java&apos;" description="Copy compilation unit" destination="/src&lt;com.ssafy" element1="/src&lt;com.ssafy{DP_ListTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1616651407991" units="1" version="1.0"/>
+</session>

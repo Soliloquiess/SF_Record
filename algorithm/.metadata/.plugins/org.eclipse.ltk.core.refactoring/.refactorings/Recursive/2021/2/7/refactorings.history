@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;A2_TransposeMatrixTest.java&apos; to &apos;Tree/src/com.ssafy.tree&apos;&#x0D;&#x0A;- Original project: &apos;Recursive&apos;&#x0D;&#x0A;- Destination element: &apos;Tree/src/com.ssafy.tree&apos;&#x0D;&#x0A;- Original element: &apos;exhaustive.A2_TransposeMatrixTest.java&apos;" description="Copy compilation unit" destination="=Tree/src&lt;com.ssafy.tree" element1="/src&lt;exhaustive{A2_TransposeMatrixTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1612850710025" units="1" version="1.0"/>
+</session>

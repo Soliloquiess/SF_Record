@@ -1,14 +1,14 @@
 package com.test;
 
 /**
- * ë„ì„œê³ ìœ  ë²ˆí˜¸ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ì˜ˆì™¸ì •ë³´ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í´ëž˜ìŠ¤
+ * µµ¼­°íÀ¯ ¹øÈ£°¡ Á¸ÀçÇÏÁö ¾Ê´Â ¿¹¿ÜÁ¤º¸¸¦ ³ªÅ¸³»´Â Å¬·¡½º
  */
 public class ISBNNotFoundException  {
 
-	/**	ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ë„ì„œ ê³ ìœ ë²ˆí˜¸ */
+	/**	Á¸ÀçÇÏÁö ¾Ê´Â µµ¼­ °íÀ¯¹øÈ£ */
 	private String isbn;
 	
-	/** ê³ ìœ ë²ˆí˜¸ë¥¼ ë°›ì•„ ìƒì„±í•˜ëŠ” ìƒì„±ìž */
+	/** °íÀ¯¹øÈ£¸¦ ¹Þ¾Æ »ý¼ºÇÏ´Â »ý¼ºÀÚ */
 	public ISBNNotFoundException(String isbn) {		
 		this.isbn = isbn;
 	}	

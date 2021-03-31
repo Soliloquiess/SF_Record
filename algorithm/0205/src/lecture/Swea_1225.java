@@ -1,4 +1,4 @@
-package swea;
+package lecture;
 
 
 import java.io.BufferedReader;

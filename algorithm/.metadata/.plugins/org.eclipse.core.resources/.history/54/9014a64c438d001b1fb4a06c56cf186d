@@ -1,0 +1,9 @@
+package com.ssafy;
+
+/*
+ * 모든 정점 간의 최소 비용
+ * 음수도 허용,
+ */
+public class FloydTest {
+	
+}

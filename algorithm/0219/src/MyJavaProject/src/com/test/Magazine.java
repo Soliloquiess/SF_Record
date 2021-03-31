@@ -1,23 +1,23 @@
 package com.test;
 
 /**
- * ì¡ì§€ ì •ë³´ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í´ë˜ìŠ¤
- * Book í´ë˜ìŠ¤ë¥¼ ìƒì† ë°›ìŒ
+ * ÀâÁö Á¤º¸¸¦ ³ªÅ¸³»´Â Å¬·¡½º
+ * Book Å¬·¡½º¸¦ »ó¼Ó ¹ŞÀ½
  */
 public class Magazine   {
 	/**
-	 * ë°œí–‰ë…„ë„
+	 * ¹ßÇà³âµµ
 	 */
 	private int year;
 	/**
-	 * ë°œí–‰ì›”
+	 * ¹ßÇà¿ù
 	 */
 	private int month;
 	
-	/** ê¸°ë³¸ ìƒì„±ì */
+	/** ±âº» »ı¼ºÀÚ */
 	
 	
-	/** ì¡ì§€ ì •ë³´ ëª¨ë‘ë¥¼ ë°›ì•„ ìƒì„±í•˜ëŠ” ìƒì„±ì */
+	/** ÀâÁö Á¤º¸ ¸ğµÎ¸¦ ¹Ş¾Æ »ı¼ºÇÏ´Â »ı¼ºÀÚ */
 	public Magazine(String isbn, String title, String author, String publisher, int price, String desc, int year, int month,int quantity) {
 		
 	}

@@ -1,4 +1,4 @@
-package com.algo02;
+package lecture;
 
 import java.util.Arrays;
 import java.util.Scanner;

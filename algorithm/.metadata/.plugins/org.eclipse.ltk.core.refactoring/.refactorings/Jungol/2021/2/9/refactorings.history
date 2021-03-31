@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Jungol_1037_오류교정_강사님코드.java&apos; to &apos;Jungol/src/Jungol&apos;&#x0D;&#x0A;- Original project: &apos;Jungol&apos;&#x0D;&#x0A;- Destination element: &apos;Jungol/src/Jungol&apos;&#x0D;&#x0A;- Original element: &apos;Jungol.Jungol_1037_오류교정_강사님코드.java&apos;" description="Copy compilation unit" destination="/src&lt;Jungol" element1="/src&lt;Jungol{Jungol_1037_오류교정_강사님코드.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1614164431757" units="1" version="1.0"/>
+</session>

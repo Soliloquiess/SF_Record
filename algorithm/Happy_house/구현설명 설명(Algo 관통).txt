@@ -1,0 +1,25 @@
+관통프로젝트 - 알고리즘을 적용한 HappyHouse 프로젝트
+구현기능
+[필수]
+1) 동별, 거래가별 정렬 기능
+검색 옵션에 해당하는 주택정보들을 이름순으로 정렬하기 위해 "정렬(동)" 버튼을 추가하였습니다.검색 옵션에 해당하는 주택정보들을 거래금액(내림차순)으로 정렬하기 위해 "정렬(거래금액)" 버튼을 추가하였습니다.
+구현 방식
+showHouses에 int 형 flag를 추가하여 flag가 0인 경우 정렬 조건 없음, 1인 경우 동(이름순) 정렬, 2인경우 거래금액(내림차순)으로 정렬합니다. 거래금액이 null인 HouseDeal은 임시로 0원 처리를 하여 비교처리하였습니다. 하지만 화면에 응답데이터를 보낼 때에는 "없음" 표시로 변경하였습니다.
+구현 코드
+HouseInfoView.class의 252~257 줄 
+정렬(동) 을 클릭했을 때 이벤트 리스너 등록 : sortDong.addActionListener(e -> {searchHouses(1) });
+정렬(거래금액) 을 클릭했을 때 이벤트 리스너 등록 : sortPrice.addActionListener(e -> { searchHouses(2); });
+HouseInfoView.class의 showHouses 코드 중 일부
+익명함수를 이용하여 compareTo 오버라이딩 (동 이름순 정렬) : if (flag == 1) { deals.sort((a, b) -> a.getDong().compareTo(b.getDong()));}	
+거래금액 내림차순 정렬: if (flag == 2) { Collections.sort(deals);}	
+321줄
+거래금액으로 정렬되었으면 null인 거래금액이 "0"으로 바뀌었으므로 없음 표시 , 기존 거래금액 null 일경우 없음 표시 : if (deal.getDealAmount() == (flag == 2 ? "0" : null)) {data[i][3]I = "없음";} 
+2) HappyHouse 프로젝트내에 알고리즘 적용
+	2-1) 이분탐색
+    2-2) 부분집합
+자세한 내용은 첨부된 pdf 참고
+
+[심화]
+기존 HappyHouse 프로젝트를 웹프로젝트로 변환시, 화면설계
+Oven 으로 화면 구성
+결과는 이미지(PDF) 참고

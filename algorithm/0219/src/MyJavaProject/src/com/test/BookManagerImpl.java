@@ -10,34 +10,34 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/* ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ì»¬ë ‰ì…˜ìœ¼ë¡œ ìœ ì§€í•˜ë©° ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
- * ì‹±ê¸€í†¤ ë””ìì¸íŒ¨í„´ ì ìš© */
+/* µµ¼­¸®½ºÆ®¸¦ ÄÃ·º¼ÇÀ¸·Î À¯ÁöÇÏ¸ç °ü¸®ÇÏ´Â Å¬·¡½º
+ * ½Ì±ÛÅæ µğÀÚÀÎÆĞÅÏ Àû¿ë */
 public class BookManagerImpl implements IBookManager {
-	/* ê´€ë¦¬í•  ë„ì„œ ë¦¬ìŠ¤íŠ¸ */
+	/* °ü¸®ÇÒ µµ¼­ ¸®½ºÆ® */
 	private ArrayList<Book> books = null; 
 	
 	IBookManager instance;
 	
-	/* ê¸°ë³¸ ìƒì„±ì */
-	 BookManagerImpl() { // ì™¸ë¶€ì—ì„œ ê°ì²´ ìƒì„±ì„ í•˜ì§€ ëª»í•˜ë„ë¡ ì ‘ê·¼ ì œì–´ì ì§€ì •
+	/* ±âº» »ı¼ºÀÚ */
+	 BookManagerImpl() { // ¿ÜºÎ¿¡¼­ °´Ã¼ »ı¼ºÀ» ÇÏÁö ¸øÇÏµµ·Ï Á¢±Ù Á¦¾îÀÚ ÁöÁ¤
 					
 	}
 	 
-	/* ë‚´ë¶€ì—ì„œ ìƒì„±í•œ ê°ì²´ì˜ ì°¸ì¡°ê°’ì„ ë°˜í™˜í•œë‹¤. */
+	/* ³»ºÎ¿¡¼­ »ı¼ºÇÑ °´Ã¼ÀÇ ÂüÁ¶°ªÀ» ¹İÈ¯ÇÑ´Ù. */
 	 IBookManager getInstance() {
 		return instance;
 	}
 
 	@Override
 	public void add(Book book) {
-		books.add(book);	// ë¦¬ìŠ¤íŠ¸ ë§ˆì§€ë§‰ì— ì¶”ê°€
+		books.add(book);	// ¸®½ºÆ® ¸¶Áö¸·¿¡ Ãß°¡
 	}
 	
 	@Override
 	public void remove(String isbn){
-		final int size = books.size();	// ì €ì¥ë˜ì–´ ìˆëŠ” ë„ì„œê°œìˆ˜ í™•ì¸
+		final int size = books.size();	// ÀúÀåµÇ¾î ÀÖ´Â µµ¼­°³¼ö È®ÀÎ
 		for (int i = 0; i < size; ++i) {
-			// ì‚­ì œí•  ë„ì„œë¥¼ ì°¾ì•˜ë‹¤ë©´ í•´ë‹¹ ë„ì„œ ìœ„ì¹˜ë¥¼ ì´ìš©í•˜ì—¬ ë¦¬ìŠ¤íŠ¸ì—ì„œ ë„ì„œ ì‚­ì œ
+			// »èÁ¦ÇÒ µµ¼­¸¦ Ã£¾Ò´Ù¸é ÇØ´ç µµ¼­ À§Ä¡¸¦ ÀÌ¿ëÇÏ¿© ¸®½ºÆ®¿¡¼­ µµ¼­ »èÁ¦
 			if (books.get(i).getIsbn().equals(isbn)) {
 				books.remove(i);
 				break;
@@ -48,7 +48,7 @@ public class BookManagerImpl implements IBookManager {
 	
 	@Override
 	public ArrayList<Book> getList() {
-		return books;			// ì»¬ë ‰ì…˜ ë‚´ìš©ì„ ë°°ì—´ë¡œ ë³µì‚¬ í›„ ë°°ì—´ ë¦¬í„´ 
+		return books;			// ÄÃ·º¼Ç ³»¿ëÀ» ¹è¿­·Î º¹»ç ÈÄ ¹è¿­ ¸®ÅÏ 
 	}
 
 	@Override
@@ -61,37 +61,37 @@ public class BookManagerImpl implements IBookManager {
 	
 	@Override
 	public ArrayList<Book> searchByTitle(String title) {
-		// ì œëª©ì„ í¬í•¨í•˜ëŠ” ë„ì„œì˜ ê°œìˆ˜ë¥¼ ì•Œ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ì»¬ë ‰ì…˜ì„ í™œìš©í•˜ì—¬ ì €ì¥ í›„ ë§ˆì§€ë§‰ì— ë°°ì—´ë¡œ ë°”ê¾¸ì–´ ë°˜í™˜í•œë‹¤.
+		// Á¦¸ñÀ» Æ÷ÇÔÇÏ´Â µµ¼­ÀÇ °³¼ö¸¦ ¾Ë ¼ö ¾øÀ¸¹Ç·Î ÄÃ·º¼ÇÀ» È°¿ëÇÏ¿© ÀúÀå ÈÄ ¸¶Áö¸·¿¡ ¹è¿­·Î ¹Ù²Ù¾î ¹İÈ¯ÇÑ´Ù.
 		ArrayList<Book> temp = new ArrayList<Book>();
 		for (Book book : books) {
 			if(book.getTitle().contains(title)) 
 				temp.add(book);
 		}
-		return temp; 			// ì»¬ë™ì…˜ì˜ ë‚´ìš©ì„ ë°°ì—´ë¡œ ë³µì‚¬ í›„ ë¦¬í„´
+		return temp; 			// ÄÃ·¢¼ÇÀÇ ³»¿ëÀ» ¹è¿­·Î º¹»ç ÈÄ ¸®ÅÏ
 	}
 	
 	@Override
 	public ArrayList<Magazine> getMagazines() {
-		// ì¡ì§€ì˜ ê°œìˆ˜ë¥¼ ì•Œ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ì»¬ë ‰ì…˜ì„ í™œìš©í•˜ì—¬ ì €ì¥ í›„ ë§ˆì§€ë§‰ì— ë°°ì—´ë¡œ ë°”ê¾¸ì–´ ë°˜í™˜í•œë‹¤.
+		// ÀâÁöÀÇ °³¼ö¸¦ ¾Ë ¼ö ¾øÀ¸¹Ç·Î ÄÃ·º¼ÇÀ» È°¿ëÇÏ¿© ÀúÀå ÈÄ ¸¶Áö¸·¿¡ ¹è¿­·Î ¹Ù²Ù¾î ¹İÈ¯ÇÑ´Ù.
 		ArrayList<Magazine> temp = new ArrayList<Magazine>();
 		for (Book book : books) {
 			if(book  instanceof Magazine) temp.add((Magazine)book);
 		}		
-		return temp; 					// ì»¬ë™ì…˜ì˜ ë‚´ìš©ì„ ë°°ì—´ë¡œ ë³µì‚¬ í›„ ë¦¬í„´
+		return temp; 					// ÄÃ·¢¼ÇÀÇ ³»¿ëÀ» ¹è¿­·Î º¹»ç ÈÄ ¸®ÅÏ
 	} 	
 	
-	/* ì¡ì§€ê°€ ì•„ë‹Œ ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤. */
+	/* ÀâÁö°¡ ¾Æ´Ñ µµ¼­¸®½ºÆ®¸¦ ¹İÈ¯ÇÑ´Ù. */
 	@Override
 	public Book[] getBooks() {
-		// ì¼ë°˜ ë„ì„œì˜ ê°œìˆ˜ë¥¼ ì•Œ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ì»¬ë ‰ì…˜ì„ í™œìš©í•˜ì—¬ ì €ì¥ í›„ ë§ˆì§€ë§‰ì— ë°°ì—´ë¡œ ë°”ê¾¸ì–´ ë°˜í™˜í•œë‹¤.
+		// ÀÏ¹İ µµ¼­ÀÇ °³¼ö¸¦ ¾Ë ¼ö ¾øÀ¸¹Ç·Î ÄÃ·º¼ÇÀ» È°¿ëÇÏ¿© ÀúÀå ÈÄ ¸¶Áö¸·¿¡ ¹è¿­·Î ¹Ù²Ù¾î ¹İÈ¯ÇÑ´Ù.
 		ArrayList<Book> temp = new ArrayList<Book>();
 		for (Book book : books) {
 			if(!(book  instanceof Magazine)) temp.add(book);
 		}
-		Book[] result = new Book[temp.size()];	// ì¡°íšŒ ê²°ê³¼ë¥¼ ë‹´ì€ ì»¬ë ‰ì…˜ì˜ í¬ê¸°ë¥¼ í™œìš©í•˜ì—¬ ë°°ì—´ ìƒì„±
-		return temp.toArray(result); 			// ì»¬ë™ì…˜ì˜ ë‚´ìš©ì„ ë°°ì—´ë¡œ ë³µì‚¬ í›„ ë¦¬í„´
+		Book[] result = new Book[temp.size()];	// Á¶È¸ °á°ú¸¦ ´ãÀº ÄÃ·º¼ÇÀÇ Å©±â¸¦ È°¿ëÇÏ¿© ¹è¿­ »ı¼º
+		return temp.toArray(result); 			// ÄÃ·¢¼ÇÀÇ ³»¿ëÀ» ¹è¿­·Î º¹»ç ÈÄ ¸®ÅÏ
 	}
-	/* ë„ì„œë¦¬ìŠ¤íŠ¸ì˜ ê°€ê²©ì˜ ì´í•©ì„ ë°˜í™˜í•œë‹¤. */
+	/* µµ¼­¸®½ºÆ®ÀÇ °¡°İÀÇ ÃÑÇÕÀ» ¹İÈ¯ÇÑ´Ù. */
 	@Override
 	public int getTotalPrice() {
 		int total = 0;
@@ -100,40 +100,40 @@ public class BookManagerImpl implements IBookManager {
 		}
 		return total;
 	}
-	/* ë„ì„œê°€ê²©ì˜ í‰ê· ì„ ë°˜í™˜í•œë‹¤.	 */
+	/* µµ¼­°¡°İÀÇ Æò±ÕÀ» ¹İÈ¯ÇÑ´Ù.	 */
 	@Override
 	public double getPriceAvg() {
 		return (double)getTotalPrice()/ books.size();
 	}
 	
 	/*
-	 * ê³ ìœ ë²ˆí˜¸ì— í•´ë‹¹í•˜ëŠ” ë„ì„œë¥¼ ìˆ˜ëŸ‰ë§Œí¼ íŒë§¤ì²˜ë¦¬í•˜ì—¬ ì¬ê³ ë¥¼ ê°ì†Œì‹œí‚¨ë‹¤.
-	 * QuantityException ë°œìƒ: ì¬ê³  ìˆ˜ëŸ‰ ë¶€ì¡±ì˜ ì˜ˆì™¸ ìƒí™©
-	 * ISBNNotFoundException ë°œìƒ: ê³ ìœ ë²ˆí˜¸ì— í•´ë‹¹í•˜ëŠ” ë„ì„œê°€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì˜ˆì™¸ìƒí™© 
+	 * °íÀ¯¹øÈ£¿¡ ÇØ´çÇÏ´Â µµ¼­¸¦ ¼ö·®¸¸Å­ ÆÇ¸ÅÃ³¸®ÇÏ¿© Àç°í¸¦ °¨¼Ò½ÃÅ²´Ù.
+	 * QuantityException ¹ß»ı: Àç°í ¼ö·® ºÎÁ·ÀÇ ¿¹¿Ü »óÈ²
+	 * ISBNNotFoundException ¹ß»ı: °íÀ¯¹øÈ£¿¡ ÇØ´çÇÏ´Â µµ¼­°¡ Á¸ÀçÇÏÁö ¾Ê´Â ¿¹¿Ü»óÈ² 
 	 */
 	@Override
 	public void sell(String isbn, int quantity)  {
-		Book book = searchByIsbn(isbn);				// ê³ ìœ ë²ˆí˜¸ ë„ì„œ ì¡°íšŒ
+		Book book = searchByIsbn(isbn);				// °íÀ¯¹øÈ£ µµ¼­ Á¶È¸
 		if(book == null) 
-		// ê³ ìœ ë²ˆí˜¸ ë„ì„œ ì¡°íšŒ ì‹¤íŒ¨ì‹œ ISBNNotFoundException ì‚¬ìš©ì ì •ì˜ ì˜ˆì™¸ ë°œìƒì‹œí‚´
+		// °íÀ¯¹øÈ£ µµ¼­ Á¶È¸ ½ÇÆĞ½Ã ISBNNotFoundException »ç¿ëÀÚ Á¤ÀÇ ¿¹¿Ü ¹ß»ı½ÃÅ´
 		
-		int res = book.getQuantity() - quantity;	// íŒë§¤ í›„ ìƒˆë¡œìš´ ì¬ê³  ìˆ˜ëŸ‰ ê³„ì‚°
+		int res = book.getQuantity() - quantity;	// ÆÇ¸Å ÈÄ »õ·Î¿î Àç°í ¼ö·® °è»ê
 		if(res < 0) 
-		// ì¬ê³ ìˆ˜ëŸ‰ ë¶€ì¡±ì‹œ QuantityException ì‚¬ìš©ì ì •ì˜ ì˜ˆì™¸ ë°œìƒì‹œí‚´
+		// Àç°í¼ö·® ºÎÁ·½Ã QuantityException »ç¿ëÀÚ Á¤ÀÇ ¿¹¿Ü ¹ß»ı½ÃÅ´
 		
-		book.setQuantity(res); 						// íŒë§¤í›„ ë‚¨ì€ ì¬ê³ ìˆ˜ëŸ‰ìœ¼ë¡œ ì¬ê³ ìˆ˜ëŸ‰ ë³€ê²½
+		book.setQuantity(res); 						// ÆÇ¸ÅÈÄ ³²Àº Àç°í¼ö·®À¸·Î Àç°í¼ö·® º¯°æ
 	}
 	
 	/*
-	 * ê³ ìœ ë²ˆí˜¸ì— í•´ë‹¹í•˜ëŠ” ë„ì„œë¥¼ ìˆ˜ëŸ‰ë§Œí¼ êµ¬ë§¤ ì²˜ë¦¬í•˜ì—¬ ì¬ê³ ë¥¼ ì¦ê°€ì‹œí‚¨ë‹¤.
-	 * ISBNNotFoundException ë°œìƒ: ê³ ìœ ë²ˆí˜¸ì— í•´ë‹¹í•˜ëŠ” ë„ì„œê°€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì˜ˆì™¸ìƒí™© 
+	 * °íÀ¯¹øÈ£¿¡ ÇØ´çÇÏ´Â µµ¼­¸¦ ¼ö·®¸¸Å­ ±¸¸Å Ã³¸®ÇÏ¿© Àç°í¸¦ Áõ°¡½ÃÅ²´Ù.
+	 * ISBNNotFoundException ¹ß»ı: °íÀ¯¹øÈ£¿¡ ÇØ´çÇÏ´Â µµ¼­°¡ Á¸ÀçÇÏÁö ¾Ê´Â ¿¹¿Ü»óÈ² 
 	 */
 	@Override
 	public void buy(String isbn, int quantity)  {
-		Book book = searchByIsbn(isbn);	// ê³ ìœ ë²ˆí˜¸ ë„ì„œ ì¡°íšŒ
+		Book book = searchByIsbn(isbn);	// °íÀ¯¹øÈ£ µµ¼­ Á¶È¸
 		if(book == null) 
-			throw new ISBNNotFoundException(isbn); //ê³ ìœ ë²ˆí˜¸ ë„ì„œ ì¡°íšŒ ì‹¤íŒ¨ì‹œ ISBNNotFoundException ì‚¬ìš©ì ì •ì˜ ì˜ˆì™¸ ë°œìƒì‹œí‚´
+			throw new ISBNNotFoundException(isbn); //°íÀ¯¹øÈ£ µµ¼­ Á¶È¸ ½ÇÆĞ½Ã ISBNNotFoundException »ç¿ëÀÚ Á¤ÀÇ ¿¹¿Ü ¹ß»ı½ÃÅ´
 		
-		book.setQuantity(book.getQuantity() + quantity);// êµ¬ë§¤ í›„ì˜ ìƒˆë¡œìš´ ì¬ê³  ìˆ˜ëŸ‰ ê³„ì‚°í•˜ì—¬ ì¬ê³  ìˆ˜ëŸ‰ ë³€ê²½ 
+		book.setQuantity(book.getQuantity() + quantity);// ±¸¸Å ÈÄÀÇ »õ·Î¿î Àç°í ¼ö·® °è»êÇÏ¿© Àç°í ¼ö·® º¯°æ 
 	}	
 }

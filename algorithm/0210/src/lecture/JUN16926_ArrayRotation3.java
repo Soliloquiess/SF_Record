@@ -1,4 +1,4 @@
-package com.off.day3;
+package lecture;
 
 import java.io.*;
 import java.util.*;

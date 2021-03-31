@@ -3,7 +3,7 @@ package com.test;
 public class QuantityException {
 
 	public QuantityException() {
-		super("ìˆ˜ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
+		super("¼ö·®ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
 	}
 
 }

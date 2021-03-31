@@ -1,3 +1,5 @@
+package lecture;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
@@ -10,14 +12,14 @@ public class sw5215 {
 		
 		for(int test_case = 1; test_case<=T; test_case++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			int N = Integer.parseInt(st.nextToken()); //재료수
-			int L = Integer.parseInt(st.nextToken()); //제한칼로리
+			int N = Integer.parseInt(st.nextToken()); //�옱猷뚯닔
+			int L = Integer.parseInt(st.nextToken()); //�젣�븳移쇰줈由�
 			
-			int[] calories = new int[N]; //칼로리
-			int[] happy = new int[N]; //맛평가
-			int[][] dp = new int[N+1][L+1]; //갯수와 누적칼로리
-			//L+1을 한 이유는 1000kcal는 [1000]위치에 저장되기 때문에 한칸 더 커야한다.
-			//N+1을 한 이유는 아무것도 안뽑은 상태를 표현하기 위해서다.
+			int[] calories = new int[N]; //移쇰줈由�
+			int[] happy = new int[N]; //留쏇룊媛�
+			int[][] dp = new int[N+1][L+1]; //媛��닔�� �늻�쟻移쇰줈由�
+			//L+1�쓣 �븳 �씠�쑀�뒗 1000kcal�뒗 [1000]�쐞移섏뿉 ���옣�릺湲� �븣臾몄뿉 �븳移� �뜑 而ㅼ빞�븳�떎.
+			//N+1�쓣 �븳 �씠�쑀�뒗 �븘臾닿쾬�룄 �븞戮묒� �긽�깭瑜� �몴�쁽�븯湲� �쐞�빐�꽌�떎.
 			
 			for(int i = 0; i < N; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
@@ -26,16 +28,16 @@ public class sw5215 {
 			}
 			
 			for(int i = N-1; i>=0; i--) {
-				for(int j = 0; j <= L; j++) {//제한 칼로리만큼 반복
+				for(int j = 0; j <= L; j++) {//�젣�븳 移쇰줈由щ쭔�겮 諛섎났
 					if(j < calories[i])
-						dp[i][j] = dp[i+1][j];//해당 칼로리보다 적으면 이 칼로리를 뽑을 수 없기 때문이다.
+						dp[i][j] = dp[i+1][j];//�빐�떦 移쇰줈由щ낫�떎 �쟻�쑝硫� �씠 移쇰줈由щ�� 戮묒쓣 �닔 �뾾湲� �븣臾몄씠�떎.
 					else
-						//해당 칼로리보다 많으면 이 재료를 안넣은 맛과 이 재료를 넣어서 만들어진 값 중 가장 큰 값을 뽑을 수 있다.
-						//그 중 가장 큰값을 답으로 원하므로, 비교해서 가장 큰 걸 넣는다.
+						//�빐�떦 移쇰줈由щ낫�떎 留롮쑝硫� �씠 �옱猷뚮�� �븞�꽔�� 留쏄낵 �씠 �옱猷뚮�� �꽔�뼱�꽌 留뚮뱾�뼱吏� 媛� 以� 媛��옣 �겙 媛믪쓣 戮묒쓣 �닔 �엳�떎.
+						//洹� 以� 媛��옣 �겙媛믪쓣 �떟�쑝濡� �썝�븯誘�濡�, 鍮꾧탳�빐�꽌 媛��옣 �겙 嫄� �꽔�뒗�떎.
 						dp[i][j] = Math.max(dp[i+1][j], dp[i+1][j-calories[i]] +happy[i]);
 				}
 			}
-			//다 뽑고 최종적인 칼로리에 저장된 값이 가장 큰 값이다.
+			//�떎 戮묎퀬 理쒖쥌�쟻�씤 移쇰줈由ъ뿉 ���옣�맂 媛믪씠 媛��옣 �겙 媛믪씠�떎.
 			System.out.println("#"+test_case+" "+dp[0][L]);
 			
 		}

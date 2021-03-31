@@ -1,4 +1,4 @@
-package com.study.classAlgo;
+package lecture;
 
 import java.util.Scanner;
 

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Algo2_±§¡÷_4π›_¡∂æÁ»∆ {
+	
+	public int soultion(int [] weight) {
+		
+		return 1;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int [] weight = {1,2,4,5,2};
+		System.out.println(soultion(weight));
+	}
+}

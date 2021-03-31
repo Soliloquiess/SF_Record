@@ -1,0 +1,10 @@
+package BOJ;
+
+public class BOJ_10163_색종이_강사님코드 {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int N = sc. nextInt();
+	}
+}

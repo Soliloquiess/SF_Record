@@ -2,27 +2,27 @@ package com.test;
 
 import java.util.ArrayList;
 
-/* ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ê´€ë¦¬í•˜ê¸° ìœ„í•œ í´ëž˜ìŠ¤ë¥¼ ìœ„í•œ ëª…ì„¸ì—­í• ì˜ ì¸í„°íŽ˜ì´ìŠ¤ */
+/* µµ¼­¸®½ºÆ®¸¦ °ü¸®ÇÏ±â À§ÇÑ Å¬·¡½º¸¦ À§ÇÑ ¸í¼¼¿ªÇÒÀÇ ÀÎÅÍÆäÀÌ½º */
 public interface IBookManager {
 	
-	void add(Book book); //ë„ì„œë¥¼ ë„ì„œë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•œë‹¤.	
-	void remove(String isbn);	//ê³ ìœ ë²ˆí˜¸ì˜ í•´ë‹¹ ë„ì„œë¥¼ ë„ì„œë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œí•œë‹¤.
-	ArrayList<Book> getList();	//ë“±ë¡ëœ ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤.
-	ArrayList<Book> sortedByIsbn();	//isbn ê¸°ì¤€ ì •ë ¬ëœ ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤.(ê¸°ë³¸ ì •ë ¬ê¸°ì¤€)
-	ArrayList<Book> sortedByTitle();	//title ê¸°ì¤€ ì •ë ¬ëœ ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤.
+	void add(Book book); //µµ¼­¸¦ µµ¼­¸®½ºÆ®¿¡ Ãß°¡ÇÑ´Ù.	
+	void remove(String isbn);	//°íÀ¯¹øÈ£ÀÇ ÇØ´ç µµ¼­¸¦ µµ¼­¸®½ºÆ®¿¡¼­ »èÁ¦ÇÑ´Ù.
+	ArrayList<Book> getList();	//µî·ÏµÈ µµ¼­¸®½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù.
+	ArrayList<Book> sortedByIsbn();	//isbn ±âÁØ Á¤·ÄµÈ µµ¼­¸®½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù.(±âº» Á¤·Ä±âÁØ)
+	ArrayList<Book> sortedByTitle();	//title ±âÁØ Á¤·ÄµÈ µµ¼­¸®½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù.
 	
-	Book searchByIsbn(String isbn);	//ê³ ìœ ë²ˆí˜¸ë¡œ í•´ë‹¹ ë„ì„œë¥¼ ì¡°íšŒí•œë‹¤.
-	ArrayList<Book> searchByTitle(String title);//ë„ì„œ ì œëª©ì„ í¬í•¨í•˜ê³  ìžˆëŠ” ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤.	
-	ArrayList<Magazine> getMagazines();	//ìž¡ì§€ë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤.
-	Book[] getBooks();//ë„ì„œë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤. 	
-	int getTotalPrice();//ë„ì„œë¦¬ìŠ¤íŠ¸ì˜ ê°€ê²©ì˜ ì´í•©ì„ ë°˜í™˜í•œë‹¤.
+	Book searchByIsbn(String isbn);	//°íÀ¯¹øÈ£·Î ÇØ´ç µµ¼­¸¦ Á¶È¸ÇÑ´Ù.
+	ArrayList<Book> searchByTitle(String title);//µµ¼­ Á¦¸ñÀ» Æ÷ÇÔÇÏ°í ÀÖ´Â µµ¼­¸®½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù.	
+	ArrayList<Magazine> getMagazines();	//ÀâÁö¸®½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù.
+	Book[] getBooks();//µµ¼­¸®½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù. 	
+	int getTotalPrice();//µµ¼­¸®½ºÆ®ÀÇ °¡°ÝÀÇ ÃÑÇÕÀ» ¹ÝÈ¯ÇÑ´Ù.
 	
-	double getPriceAvg();//ë„ì„œë¦¬ìŠ¤íŠ¸ì˜ ê°€ê²©ì˜ í‰ê· ì„ ë°˜í™˜í•œë‹¤.	
+	double getPriceAvg();//µµ¼­¸®½ºÆ®ÀÇ °¡°ÝÀÇ Æò±ÕÀ» ¹ÝÈ¯ÇÑ´Ù.	
 	
-	//ê³ ìœ ë²ˆí˜¸ì— í•´ë‹¹í•˜ëŠ” ë„ì„œë¥¼ ìˆ˜ëŸ‰ë§Œí¼ íŒë§¤ì²˜ë¦¬í•˜ì—¬ ìž¬ê³ ë¥¼ ê°ì†Œì‹œí‚¨ë‹¤.
+	//°íÀ¯¹øÈ£¿¡ ÇØ´çÇÏ´Â µµ¼­¸¦ ¼ö·®¸¸Å­ ÆÇ¸ÅÃ³¸®ÇÏ¿© Àç°í¸¦ °¨¼Ò½ÃÅ²´Ù.
 	void sell(String isbn, int quantity) throws QuantityException, ISBNNotFoundException;
 	
-	//ê³ ìœ ë²ˆí˜¸ì— í•´ë‹¹í•˜ëŠ” ë„ì„œë¥¼ ìˆ˜ëŸ‰ë§Œí¼ êµ¬ë§¤ ì²˜ë¦¬í•˜ì—¬ ìž¬ê³ ë¥¼ ì¦ê°€ì‹œí‚¨ë‹¤.
+	//°íÀ¯¹øÈ£¿¡ ÇØ´çÇÏ´Â µµ¼­¸¦ ¼ö·®¸¸Å­ ±¸¸Å Ã³¸®ÇÏ¿© Àç°í¸¦ Áõ°¡½ÃÅ²´Ù.
 	void buy(String isbn, int quantity) throws ISBNNotFoundException;
 
 }

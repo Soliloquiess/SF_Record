@@ -1,0 +1,22 @@
+package live;
+
+import java.util.Scanner;
+
+public class Algorithm_12_식당예제 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int R = sc.nextInt();
+		int C = sc.nextInt();
+		
+		int arr[][] = new int[R][R];
+		char restuarant[][] = new char[R][C];
+		
+		for(int i = 0; i<R;i++) {
+			for(int j =0; j<R;j++) {
+				arr[i][j] = sc.next();
+			}
+		}
+		
+		
+	}
+}

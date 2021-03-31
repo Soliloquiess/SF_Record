@@ -1,4 +1,4 @@
-package com.algo05;
+package lecture;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

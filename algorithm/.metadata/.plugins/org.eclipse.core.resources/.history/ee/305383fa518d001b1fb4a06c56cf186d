@@ -1,0 +1,100 @@
+package SWEA;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class SWEA_8382_방향전환 {
+	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder output = new StringBuilder();
+	static StringTokenizer tokens;
+
+	static int T;
+	static Queue <Point> q;
+	//원점을 0,0으로보지말고 100,100으로 보자 (양수밖에 표현 못하니까.
+	static int x1,y1,x2,y2;
+	
+	//이동 방향을 잡을 때 세로세로, 가로가로 형태로.
+	static int [][] deltas = {{-1,0},{1,0},{0,1},{0,-1}};
+	
+	public static void main(String[] args) throws IOException {
+		input = new BufferedReader(new StringReader(src));
+		T = Integer.parseInt(input.readLine());
+		for (int t = 1; t <= T; t++) {
+			tokens = new StringTokenizer(input.readLine(), " ");
+			
+			 x1 = Integer.parseInt(tokens.nextToken())+100;
+			 y1 = Integer.parseInt(tokens.nextToken())+100;
+			
+			 x2 = Integer.parseInt(tokens.nextToken())+100;
+			 y2 = Integer.parseInt(tokens.nextToken())+100;
+			 
+			bfs();
+			 
+		}
+	}
+			
+	static int bfs() {
+		 q = new LinkedList<>();
+		 //수평으로 수직으로 어디든 갈 수 있다.	
+		 boolean [][][]visited = new boolean[201][201][2];//맨 마지막은 가로냐 세로냐
+		 //관리해야 할 상태가 무려 3개!!!(row, column , 어떤방향으로 와서 그지점에 왔나?
+		 q.add(new Point(y1,x1,true));	
+		 q.add(new Point(y1,x1,false));
+		 //큐에 기본 출발점을 작 적용
+		 visited[y1][x1][0] = true;
+		 visited[y1][x1][0] = true;
+		 //bfs탐색이 몇번을 돌며 탐색을 갔나? 큐가 끝낼때 까지 이러면 안되고
+//		 사이즈 알아야 한텀 두텀 이렇게 가면서 알 수 있다.
+		 
+		 int time =0;
+		 while(!q.isEmpty())//빌때까지 돌건데 그냥 다 돌면 안되고 사이즈라는 변수를 둬서 그 사이즈만큼만 돌겠다.
+		 //그 사이즈 한번 다 돌면 한 스텝이 증가(여기서는 타임으로 줬다.
+		 {
+			 int size= q.size();
+			 while(size-->0) {
+				 //1.처음 녀석 가져오기
+				 Point head = q.poll();
+				 //2. 필요하면 사용하기
+				 if(head.r==y2 && head.c ==x2) {	//목적지에 도착했다면 끝남.
+					 return time; //그떄의 시간 반환해주면 끝
+				 }
+				 //3. 다음 자식 가보기(일방적으로는 사방탐색)근데 여기는 내가 어떤 방향으로 왔느냐에 따라 달라짐.
+//				 정보는 헤드가 담고 있으니까 horizental로 왔냐 아니냐
+				 
+				 if(head.isHor) {
+					 for(int d = 0; d<2; d++) {
+						 int nr = head.r + deltas[d][0];
+					 }
+				 }
+			 }
+			 time++;
+			 
+		 }
+	}
+	//어떤방향으로 해도 된다. = 그냥 모든 방향 다 해봐야 한다.
+	static class Point{
+		int r, c;
+		boolean isHor;
+		public Point(int r, int c, boolean isHor) {
+			super();
+			this.r = r;
+			this.c = c;
+			this.isHor = isHor;
+		}
+	}
+	
+	
+	
+	private static String src = "\r\n" + 
+			"3\r\n" + 
+			"0 0 1 0\r\n" + 
+			"-1 -1 0 0\r\n" + 
+			"0 0 0 2";
+}
+

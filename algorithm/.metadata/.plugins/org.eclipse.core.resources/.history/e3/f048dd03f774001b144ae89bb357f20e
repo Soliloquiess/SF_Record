@@ -1,0 +1,38 @@
+package BOJ;
+
+import java.util.Scanner;
+
+public class BOJ_10163_»öÁ¾ÀÌ {
+	static int[][] paper = new int[102][102];
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		
+		
+		int[][] paper = new int[101][101];
+		int T = sc.nextInt();
+		int x; int y; int width; int heigth;
+		for (int i = 1; i <= n; i++) {
+			
+			 x = sc.nextInt();
+			 y = sc.nextInt();
+			 width = sc.nextInt();
+			 heigth = sc.nextInt();
+			for (int j = y; j < y+heigth; j++) {
+				for (int k = x; k < x+width; k++) {
+					paper[j][k] = i;
+				}
+			}
+		}
+		
+		int cnt = 0;
+		for (int i = 1; i <= T; i++) {
+			cnt = 0;
+			for (int j = 0; j <= 100; j++) {
+				for (int k = 0; k <= 100; k++) {
+					if (paper[j][k] == i) cnt++;
+				}
+			}
+			System.out.println(cnt);
+		}
+	}
+}

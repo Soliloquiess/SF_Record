@@ -1,4 +1,4 @@
-package com.ssafy.hw;
+package lecture;
 
 import java.io.BufferedReader;
 import java.io.IOException;

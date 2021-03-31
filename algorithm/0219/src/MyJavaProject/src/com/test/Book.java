@@ -1,11 +1,11 @@
 package com.test;
 
- /* ë„ì„œ ì •ë³´ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í´ë˜ìŠ¤
+ /* µµ¼­ Á¤º¸¸¦ ³ªÅ¸³»´Â Å¬·¡½º
    encapsulation
    constructor
    getter, setter
    toString
-     ì§ë ¬í™” ê°ì²´
+     Á÷·ÄÈ­ °´Ã¼
  */
 
 public class Book  {	
@@ -18,9 +18,9 @@ public class Book  {
 	 String desc;	
 	 int quantity;
 	 
-	/** ê¸°ë³¸ ìƒì„±ì */
+	/** ±âº» »ı¼ºÀÚ */
 	
-	/** ë„ì„œ ì •ë³´ë¥¼ ëª¨ë‘ ë°›ì•„ ìƒì„±í•˜ëŠ” ìƒì„±ì */
+	/** µµ¼­ Á¤º¸¸¦ ¸ğµÎ ¹Ş¾Æ »ı¼ºÇÏ´Â »ı¼ºÀÚ */
 	
 	
 }

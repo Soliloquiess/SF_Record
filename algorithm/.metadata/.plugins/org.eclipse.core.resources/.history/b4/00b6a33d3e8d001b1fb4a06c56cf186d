@@ -1,0 +1,49 @@
+package com.ssafy;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class DP_ListTest2 {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();	//수열의 길이
+		int [] arr = new int[N];//원소들 저장, 수열의 값
+		int[] LIS = new int[N]; //각 원소를 마지막에 세웠을 때의 최장길이
+		int temp;
+		for(int i =0; i<N;i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		int size= 0;
+		for(int i =0; i<N;i++) {
+				//3은 젤 첨에 들어가는거 그담은 0번째 들어가면 됨,
+			//binarySearch(int [] a, int fromIndex(in), int toIndex(ex), int key)
+			int temp = Arrays.binarySearch(LIS, 0,size,arr[i]); //리턴값:-insertPoint -1
+//			System.out.println(arr[i] + ":" + temp);
+		}
+		
+		temp = Math.abs(temp)-1;//삽입위치
+		System.out.println("after"+temp);
+		
+		LIS[temp] = arr[i];
+		
+		if(size==temp) {	//삽입위치의 인덱스와 크기가 같으면 결국 마지막이 삽입위치라는 얘기
+			size++;
+		}
+		/*김태희 교수님 */
+//		int size = 0;
+//		for(int i = 0; i<N; i++) {
+//			int temp = Arrays.binarySearch(LIS, 0, size, arr[i]);	//리턴값: -insertPoint -1
+//			
+//			temp = Math.abs(temp)-1; //중복값이 없으므로 탐색에 실패하고 음수값이 리턴
+//			LIS[temp] = arr[i]; //맨뒤에 추가되거나 기존 위치에 덮어쓰거나
+//			
+//			if(temp ==size) 
+//			{
+//					++size;
+//			}
+//		}
+//		System.out.println(size);
+	}
+}
