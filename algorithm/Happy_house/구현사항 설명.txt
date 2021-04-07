@@ -118,7 +118,7 @@ else if(qName.equals("일")) {
 
 house.setDealDay(Integer.parseInt(temp));
 
-*// 일 항목을 처리하세요.*
+*// 일 항목을 처리하세요. *
 
 }
 ```
