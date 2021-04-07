@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ajax test</title>
+
+<style type="text/css">
+div{
+	display:inline-block;
+	overflow: auto;
+}
+div.short{
+	border: 2px solid blue;
+	width: 250px;
+	height: 250px;	
+}
+div.long{
+	border: 2px solid red;
+	width: 250px;
+	height: 250px;	
+}
+</style>
+<script type="text/javascript">
+var xhr = null;
+
+function getXHR() {
+	xhr = new XMLHttpRequest();
+}
+
+function sendGet() {
+	//val = document.getElementById('name');
+	var val = $("#name");
+	var param = "?name=" + val.value;
+	
+	getXHR();
+	xhr.open("get", "nameTest.jsp" + param, true);//get:서버로 결과를 요청하는 방식(method)
+	xhr.onreadystatechange = process;//callback 지정       
+	xhr.send(null);//get방식으로 요청시 파라메터는 null 
+		
+}
+
+function process() {
+	if (xhr.readyState == 4 && xhr.status == 200) {
+		var re = xhr.responseText.trim();//공백제거
+		
+		if(re == 'false'){
+			//var result = document.getElementById("shortNames"); 
+			var result = $("#shortNames");
+			//result.innerHTML += val.value + "<br>";
+			
+			result.html(val.value + "<br>");
+		}else{
+			//var result = document.getElementById("longNames");
+			var result = $("#longNames");
+			result.innerHTML += val.value + "<br>";				
+		}			
+		val.value = "";	
+	}
+}
+
+</script>
+
+</head>
+<body>
+<p>Please introduce yourself by entering your name in the box below</p>
+<input type='text' size='24' id='name'></input>&nbsp;
+<button onclick="sendGet()">Submit</button><br><br>
+
+<div id='shortNames' class='short'></div>
+
+<div id='longNames' class='long'></div>
+
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+
+// 실습 #01
+	
+package com.ssafy;
+
+public class Phone {
+
+	public String name = "Galaxy Note";
+	public char color;
+	public int price;
+	
+	public int getRealDebt() {
+		return 1000; 
+	}
+}
+	
+package com.ssafy;
+
+public class PhoneTest {
+	public static void main(String[] args) {
+
+		Phone phone = new Phone();
+		
+		phone.name = "Galaxy Note";
+		phone.color = 'B';
+		phone.price = 10000;
+
+		System.out.println( phone.getRealDebt() );
+  }
+}
+   
+   
+// 실습 #02
+	
+package com.ssafy;
+
+public class Phone {
+
+	public String name = "Galaxy Note";
+	public char color;
+	public int price;
+	
+	public int getRealDebt() {
+		return 1000; 
+	}
+	
+	public Phone(String name) {
+		this.name = name;
+	}
+}  
+
+// 실습 #03
+	
+package com.ssafy;
+
+public class Phone {
+
+	public String name = "Galaxy Note";
+	public char color;
+	public int price;
+	
+	public int getRealDebt() {
+		return 1000; 
+	}
+	
+	public Phone(String name) {
+		this.name = name;
+	}
+	
+	public Phone() {}
+}  
+
+
+// 실습 #04
+	
+package com.ssafy;
+
+public class Phone {
+
+	public String name = "Galaxy Note";
+	public char color;
+	public int price;
+	
+	public int getRealDebt() {
+		return 1000; 
+	}
+	
+	public Phone(String name) {
+		this.name = name;
+		System.out.println("A");
+		System.out.println(this.name);
+	}
+	
+	public Phone() {
+		System.out.println("B");
+		System.out.println(this.name);
+	}
+}  
+
+package com.ssafy;
+
+public class PhoneTest {
+	public static void main(String[] args) {
+
+		//Phone phone = new Phone();
+		
+		//phone.name = "Galaxy Note";
+		//phone.color = 'B';
+		//phone.price = 10000;
+
+		Phone phoneA = new Phone("Galaxy S20");
+		Phone phoneB = new Phone();
+	}
+}
+
+// 실습 #05
+	
+package com.ssafy;
+
+public class Phone {
+
+	private String name = "Galaxy Note";
+	private char color;
+	private int price;
+
+	public int getRealDebt() { return 1000; }
+
+	public Phone(String name) { this.name = name; }      
+	public Phone() {}
+
+	public String getName() { return name; }
+	public void setName(String name) { this.name = name; }
+
+	public char getColor() { return color; }
+	public void setColor(char color) { this.color = color; }
+
+	public int getPrice() { return price; }
+	public void setPrice(int price) { this.price = price; }
+}  
+
+
+public class PhoneTest {
+	public static void main(String[] args) {
+
+		Phone phone = new Phone();
+			
+		phone.setName("Galaxy Note");
+		phone.setColor('B');
+		phone.setPrice(10000);
+
+		System.out.println( phone.getRealDebt() );
+		System.out.println( phone.getName() );
+		System.out.println( phone.getColor() );
+		System.out.println( phone.getPrice() );
+  }
+}
+
+
+// 실습 #06
+	
+package com.ssafy;
+
+public class Phone {
+
+	private String name = "Galaxy Note";
+	private char color;
+	private int price;
+
+	public int getRealDebt() { return 1000; }
+
+	public int getSalePrice() {
+		if( this.color == 'A' ) {
+			return this.price;
+		}else {
+			return this.price + 1000;
+		}
+	}
+		
+	public Phone(String name) { this.name = name; }      
+	public Phone() {}
+
+	public String getName() { return name; }
+	public void setName(String name) { this.name = name; }
+
+	public char getColor() { return color; }
+	public void setColor(char color) { this.color = color; }
+
+	public int getPrice() { return price; }
+	public void setPrice(int price) { this.price = price; }
+}  
+
+
+public class PhoneTest {
+	public static void main(String[] args) {
+
+		Phone phone = new Phone();
+		
+		phone.setName("Galaxy Note");
+		phone.setColor('B');
+		phone.setPrice(10000);
+
+		System.out.println( phone.getSalePrice() );
+  }
+}
+
+// 실습 #07
+
+// 오류 파일
+package com.ssafy;
+
+public class PhoneArrayTest {
+	public static void main(String[] args) {
+
+		Phone [] phoneArray = new Phone[5];
+		
+		for( int i=0; i<phoneArray.length; i++ ) {
+			phoneArray[i].setPrice(i*2000);
+		}
+				
+		for( Phone phone : phoneArray ) {
+			System.out.println( phone.getPrice() );
+		}
+
+	}
+}
+
+// 정상 파일
+package com.ssafy;
+
+public class PhoneArrayTest {
+	public static void main(String[] args) {
+
+		Phone [] phoneArray = new Phone[5];
+		
+		for( int i=0; i<phoneArray.length; i++ ) {
+			phoneArray[i] = new Phone();
+			phoneArray[i].setPrice(i*2000);
+		}
+				
+		for( Phone phone : phoneArray ) {
+			System.out.println( phone.getPrice() );
+		}
+
+	}
+}
+
+
+
+
+// 보충 #02 JVM Memory Overview
+
+package com.ssafy;
+
+public class MemoryTest {
+
+	public static void main(String[] args) {
+		
+		int i = 10;
+		String s1 = "Hello";
+		String s2 = new String("World");
+		Phone phone = new Phone("S20");
+		
+		System.out.println(i);
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(phone);
+	}
+}
+
+
+
+
+// 실습 #08
+
+// equals 없이
+package com.ssafy;
+
+public class StringTest {
+
+	public static void main(String[] args) {
+		int i1 = 10;
+		int i2 = 10;
+		
+		String s1 = "Hello";
+		String s2 = "Hello";
+		String s3 = new String("Hello");
+		String s4 = new String("Hello");
+		
+		if( i1 == i2 ) { System.out.println("i1 i2 Same"); }
+		if( s1 == s2 ) { System.out.println("s1 s2 Same"); }
+		if( s3 == s4 ) { System.out.println("s3 s4 Same"); }
+	}
+
+}
+
+// equals 포함
+
+package com.ssafy;
+
+public class StringTest {
+
+	public static void main(String[] args) {
+		int i1 = 10;
+		int i2 = 10;
+		
+		String s1 = "Hello";
+		String s2 = "Hello";
+		String s3 = new String("Hello");
+		String s4 = new String("Hello");
+		
+		if( i1 == i2 ) { System.out.println("i1 i2 Same"); }
+		if( s1 == s2 ) { System.out.println("s1 s2 Same"); }
+		if( s3 == s4 ) { System.out.println("s3 s4 Same"); }
+		if( s3.equals(s4) ) { System.out.println("s3 s4 Same"); }
+	}
+
+}
+
+
+
+// 실습 #09
+	
+package com.ssafy;
+
+public class StringConcatTest {
+
+	public static void main(String[] args) {
+		
+		String s1 = "Hello";
+		String s2 = "World";
+		String s3 = s1 + ", " + s2;
+		
+		System.out.println(s3);
+		
+		StringBuilder sb = new StringBuilder("");
+		sb.append(s1).append(", ").append(s2);
+		
+		System.out.println(sb.toString());
+		
+		String[] strArray = {"Hello", ", ", "World" };
+		String str = "";
+		for( String s : strArray ) {
+			str += s;
+		}
+		System.out.println(str);
+		
+		sb.setLength(0);
+		for( String s : strArray ) {
+			sb.append(s);
+		}
+		System.out.println(sb);
+		
+	}
+
+}
+
+// 실습 #10
+
+// toString() 추가
+
+package com.ssafy;
+
+public class Phone {
+
+	private String name = "Galaxy Note";
+	private char color;
+	private int price;
+
+	public int getRealDebt() { return 1000; }
+
+	public int getSalePrice() {
+		if( this.color == 'A' ) {
+			return this.price;
+		}else {
+			return this.price + 1000;
+		}
+	}
+		
+	public Phone(String name) { this.name = name; }      
+	public Phone() {}
+
+	public String getName() { return name; }
+	public void setName(String name) { this.name = name; }
+
+	public char getColor() { return color; }
+	public void setColor(char color) { this.color = color; }
+
+	public int getPrice() { return price; }
+	public void setPrice(int price) { this.price = price; }
+	
+	public String toString() {
+		return this.name + " " + this.color + " " + this.price;
+	}
+}
+	
+	
+package com.ssafy;
+
+public class ToStringTest {
+
+	public static void main(String[] args) {
+		
+		Phone phone = new Phone();
+		
+		phone.setName("Galaxy Note");
+		phone.setColor('B');
+		phone.setPrice(10000);
+		
+		System.out.println(phone);
+
+	}
+
+}
+
+
+// 실습 #11
+	
+package com.ssafy;
+
+public class PassByValueTest {
+	public static void main(String[] args) {
+		int i = 10;
+		setVal(i);
+		System.out.println(i);
+		
+		Pass p = new Pass();
+		p.val = 10;
+		setVal(p);
+		System.out.println(p.val);
+	}
+	
+	public static void setVal(int x) { x = 5; }
+	
+	public static void setVal(Pass p) { p.val = 5; }
+}
+
+class Pass{
+	public int val = 3;
+}
+
+// 실습 #12
+
+package com.ssafy.sub;
+
+import com.ssafy.*;
+
+public class SubClass {
+	Phone phone;
+}

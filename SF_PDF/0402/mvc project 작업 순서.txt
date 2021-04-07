@@ -1,0 +1,23 @@
+요청 url list>>>
+
+1. (초기화면) http://localhost:7070/mvc/list.mvc
+2. (상세정보 화면) http://localhost:7070/mvc/read.mvc
+3. (고객정보 등록 화면) http://localhost:7070/mvc/insertForm.mvc
+4. (고객 정보 입력 처리) http://localhost:7070/mvc/insertProcess.mvc-->저장 후 초기화면으로 돌아오기
+5. (고객삭제) http://localhost:7070/mvc/delete.mvc-->삭제 후 초기화면으로 돌아오기
+
+mvc project>>
+0.요청 url 정하기
+1.project 생성
+2.lib 복사
+3.context root 지정
+4.package 생성(5개)
+5.view 폴더 생성
+
+6.vo 작성 (테이블 구조에 맞춰, 테이블 수만큼)
+7.service 작성(interface - controller를 위해 작성, impl 객체)
+8.dao 작성(interface - service를 위해 작성, impl 객체)
+
+9.Front Controller
+10.Controller
+11.view 작성 후 확인

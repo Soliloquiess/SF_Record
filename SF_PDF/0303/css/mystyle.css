@@ -1,0 +1,9 @@
+@charset "utf-8";
+h1{
+	color: magenta;
+}
+
+ul{
+	color: rgb(255, 153, 0);
+	list-style-type: square;
+}

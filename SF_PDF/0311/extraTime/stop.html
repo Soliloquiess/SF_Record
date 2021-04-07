@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#contact{
+		width: 200px; height: 200px;
+		background: green;
+	}
+	#phone{
+		width: 100px; height: 100px;
+		background: orange;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="contact">
+		<h1>홍길동</h1>
+		<div id="phone">전화</div>
+	</div>
+</body>
+<script>
+	$("#contact").on("click", function(){
+		alert("연락처로...");
+	})
+	$("#phone").on("click", function(e){
+		e.stopPropagation();
+		alert("전화걸기...");
+	})
+</script>
+</html>

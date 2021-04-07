@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- 
+1)아이디 중복 체크
+id 가 'tommy'이면 '사용중인 id 입니다'(span에 빨간 글씨로 표시)
+id 가 'tommy'가 아니면 '사용 가능한 id 입니다'(span에 파란 글씨로 표시)
+
+2)send 버튼 누르면
+패스워드 두 개가 일치하는지 검사 -> 다르면  -> alert 띄우기(패스워드가 일치하지 않습니다)
+모든 입력칸에 값이 있는지 검사 -> 비어 있으면 -> alert 띄우기(값을 입력해 주세요!)
+모든 값이 유효하면 alert(welcome) 띄우기
+ -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">	</script>
+	
+ <meta charset="utf-8">
+ <title>Insert title here</title>
+ </head>
+ <body>
+ <h1>join member</h1>
+
+ id:	<input type="text" id="id"><button id="check">check</button><span id="result"></span><br> 
+ pass: <input type="password" id="password_1" class="pw">
+ 
+
+ 
+ confirm pass:
+	 <input type="password" id="password_2" class="pw" >
+	 <span id="alert-success" style="display: none;">비밀번호가 일치합니다.</span>
+	 <span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
+<br>
+ <button id="send">send</button>
+</body>
+</html>
+ 
+  
+ <script>
+	 $('.pw').focusout(function () {
+		 var pwd1 = $("#password_1").val();
+		 var pwd2 = $("#password_2").val();
+  
+		 if ( pwd1 != '' && pwd2 == '' ) {
+			 null;
+		 } else if (pwd1 != "" || pwd2 != "") {
+			 if (pwd1 == pwd2) {
+				 $("#alert-success").css('display', 'inline-block');
+				 $("#alert-danger").css('display', 'none');
+			 } else {
+				 alert("비밀번호가 일치하지 않습니다. 비밀번호를 재확인해주세요.");
+				 $("#alert-success").css('display', 'none');
+				 $("#alert-danger").css('display', 'inline-block');
+			 }
+		 }
+	 });
+
+
+
+
+ </script>
+  
+
+

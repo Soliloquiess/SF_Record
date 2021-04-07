@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<button id="xml">xml</button>
+	<button id="json">json</button>
+  <!-- 
+	//xml 데이터 가져와서 처리해보자
+	저 xml 데이터 클릭되면 서버에서 데이터 받아와서 여기에 뿌려보고 십다.
+	어떻게 뿌릴진 좀 읻다 셍각하고 데이터를 가져와보자 -->
+	<table>
+		<thead>
+			<tr><th>isbn</th><th>title</th></tr>
+		</thead>
+		<tbody id="target">
+		
+		</tbody>
+	</table>	
+	<input type="text" id="id"><input type="password" id="pass"><button id="login">login</button>
+	
+	
+	<form id="joinform">
+		<label for="jid">아이디</label><input type="text" id="jid"><br>
+		<label for="pass">비번</label><input type="password" id="pass"><br>
+		<label for="email">이메일</label><input type="email" id="email"><br>
+		<button type="button" id="join">join</button>
+	</form>
+	
+	<div id="result"></div>
+</body>
+<script>
+	// join 버튼이 클릭되면 joinform의 input 요소들이 not null 이고 id가 userlist.json에 없는지 확인!!
+	$("#join").on("click", function(){
+		let $inputs = $("#joinform>input");
+		//console.log($inputs)
+		let flag = true;
+		$.each($inputs, function(idx, item){
+			let val = $(item).val();
+			if(!val){
+				flag = false;
+				alert($(item).prev().text()+"가 없어요.");
+				return false;
+			}
+		})
+		
+		// id 중복 체크
+		if(flag){
+			$.ajax({
+				url:"./userlist.json",
+				success:function(data){
+					let id = $("#jid").val();
+					$.each(data, function(idx, item){
+						if(item.id===id){
+							$("#result").text("이미 사용중인 아이디입니다.");
+							flag = false;
+							return false;// 우리는 $.each를 벗어나야 한다. return false: break, return true;continue
+						}
+					})
+					if(flag){//ajax는 비동기라는 걸 꼭 명심.
+            //비동기는 뭔가? ajax 호출은 비동기라는 걸 꼭 알아야. 그 다음에 파생되야.
+        
+						alert("회원 가입 성공..")
+						// 다시 회원 가입에 대
+					}
+				}// success
+			});
+		}// if
+	});
+
+
+//login 이 클릭이 되면 일단 userlist.json 을 읽어서 등록된 id와 pass를 콘솔에 출력해보자
+	$("#login").on("click", function(){ //입력한 값이 들어있으면 로그인 성공 , 아니면 실페
+		let id = $("#id").val();
+		let pass = $("#pass").val();
+		
+		$.ajax({
+			url:"./userlist.json",
+			success:function(data){
+				$.each(data, function(idx, item){
+					console.log(item);
+					if(item.id===id && item.pass===pass){//item이 가진 아이디와 아이디 같고 아이템 패스와 패스워드 같아야 로그인 성공.
+						// login 성공
+						//console.log("로그인 성공 "+item.name);
+            
+						$("#result").text("로그인 성공 "+item.name+"님 반갑습니다.");
+						return false;//우리는 $.each를 벗어나야 한다. return false는 break의 효과, return true는 continue와 동일함
+            // 우리는 $.each를 벗어나야 한다. return false: break, return true;continue
+					}else{
+						console.log("로그인 실패 ");
+					}
+				})
+			}
+		});
+	})
+
+
+	$("#json").on("click", function(){ //json도 실행해보자
+		$.ajax({
+			url:"./essay.json",
+			// type:"",
+			// data:"",
+			success:function(data){
+				// 일단 기존 정보를 날려버리자.
+				$("#target").empty();
+				//console.log(data);
+				$.each(data, function(idx, item){
+          //대괄호가 의미 하는 건 배열. 근데 안에 또 중괄호 있는데 중괄호는 제이슨 객체
+			//	즉 이거 자체는 제이슨 표현식.
+			// 아까 xml에선 매우 힘들게 가져왔는데 제이슨은 간단히 객체. 으로 가져오기가 가능하다.
+			// 제이슨이 활용도가 어마어마하게 좋다. xml보다 json이 더 많이 사용.
+			// 
+					//console.log(item);
+					let isbn = item.isbn;
+					let title = item.title;
+					let author = item.author;
+					let publisher = item.author;
+					let price = item.price;
+					//console.log(isbn, title, author, publisher, price)
+					$("#target").append(`<tr><td>${isbn}</td><td>${title}</td></tr>`);
+				})
+			}
+		});
+	});
+	
+	
+	
+	
+	$("#xml").on("click", function(){
+		$.ajax({
+			url:"./programming.xml",
+			//type:"get", // http 요청의 타입 - get/post/put/delete
+      //http 요청의 타입 - get/post/put/delete 어떻게 요청할거냐.
+			//이건 서버에서 어떻게 응답하느냐에 따라 달림.그리고 타입은 get이 디폴트
+			//data:"", // 요청 파라미터
+			success: function(data){
+				// 일단 기존 정보를 날려버리자.
+        //일단 기존 정보를 날려버리자(새로 누르면 계속 같은 내용 추가되니까 기존 있던거 날리고 하면 그대로 계속 보여주겠지.)
+				
+				//console.log(data);	//바로는 알 수 없으니까 한땀한땀 찍어보자.
+				//찍어보니 dom 객체
+				$("#target").empty();
+				//console.log(data); --> dom 객체
+				let $data = $(data);//이제 가져오고 싶으면 그때 제이쿼리 쓰는 거.
+				//만약 book 가져오고 싶으면  book 에서 가져오면 된다.
+				let $books = $data.find("book");//마치 태그를 찾는 것과 똑같다.
+				//console.log(books);	//북 4개를 가지고 있는 제이쿼리 객체
+				// console.log(books) --> book 4개를 가지고 있는 jquery 객체
+				$.each($books, function(idx, item){
+          //console.log(item); //출력해보면 앞에 f,뭐시기 이런거 없으므로 돔객체
+					//돔객체는 바로 제이쿼리 함수 못 쓰므로 제이쿼리 객체로 바꿔야 사용 가능
+					//console.log(item);
+					let $book = $(item);
+					let isbn = $book.find("isbn").text();//이렇게 바꾸면 제이쿼리 객체가 되고 안에 있는 내용 꺼내기 가능.
+					//전체에서 내가 원하는 거 찾을 때 find 이런거 썼다.
+					let title = $book.find("title").text();
+					let author = $book.find("author").text();
+					let publisher = $book.find("publisher").text();
+					let price = $book.find("price").text();
+					//console.log(isbn, title, author, publisher, price)
+					$("#target").append(`<tr><td>${isbn}</td><td>${title}</td></tr>`);
+          //이 부분들을 타겟에 넣어주면 됨
+				})
+			}
+      //	내가 하려는 건 서버에서 데이터 받아서 처리할 거
+	/* 그럼 설정해야 할게 몇개 있다. url 어디로 ? type 어떤 방식?
+	data는 데이타라기보다는 요청 파라미터라는게 덜 헷갈린다.(요청할때 키워드 준다.)
+	성공했다면 이일을 해주겠다의 석세스 언제나 에이작스는 이 4개를 놓고 실행하면 좀 쉽다. */
+		});
+	});
+</script>
+</html>

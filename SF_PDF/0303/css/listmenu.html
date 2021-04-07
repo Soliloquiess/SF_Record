@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		body{
+			background-color: pink;
+		}
+		h1, h2, h3{
+			color:red;
+		}
+		
+		ul li{ /*ul 태그가 포함하고 있는 li를 의미 */
+			display: inline; /*화면 표시 형식을 inline 요소처럼 줄바꿈 안함*/
+			padding: 0px 10px;/*보더 기준 안쪽 여백*/
+			letter-spacing: 10px;/*글자 간격*/
+			text-transform: uppercase;/*대문자로 변경*/
+		}
+		
+		ul li a{
+			text-decoration: none;
+			color: cyan;
+		}
+		
+		ul.menu{
+			border-bottom: 1px solid blue;
+			border-top: 1px solid blue;
+			text-align: center;
+			padding: 10px 0px; /*상하: 10px, 좌우: 0px*/
+		}
+		
+		.green{
+			color: green;
+		}		
+	
+	</style>
+</head>
+<body>
+	<h1>list를 이용한 menu</h1>
+	<ul class="menu green">
+		<li>coffee</li>
+		<li>milk</li>
+		<li>juice</li>	
+	</ul>
+	
+	<ul class="menu">
+		<li><a href="#">회사소개</a></li>
+		<li><a href="#">도서</a></li>
+		<li><a href="#">자료실</a></li>
+		<li><a href="#">질문답변</a></li>
+		<li><a href="#">동영상강의</a></li>	
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('button:first, button:eq(1)').click(function(){
+				//ajax요청 보내기
+				$.ajax({
+					url:'first.jsp',
+					success:function(result){
+						$('#result').val(result);
+					},
+					error:function(){}
+				});
+			});			
+		});
+		
+	</script>
+	
+	
+	
+</head>
+<body>
+	<h1>ajax test</h1>
+	<button>get data</button>
+	<button>post data</button>
+	<hr>
+	<textarea id="result" rows="10" cols="30"></textarea>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/*어떤 대상에게 어떤 효과를...*/
+h1 {
+	color: blue;
+	font-size: 3em;
+}
+
+#eventArea {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>보충수업에 오신것을 환영합니다.</h1>
+	<input type="button" value="clickMe" id="btn">
+	<div id="eventArea"></div>
+	<input type="text" id="info">
+</body>
+
+<script>
+	/*어떤 대상이 어떻게 동작하느냐?...*/
+	// 모든 요소는 객체이다.!!		
+	let btn = document.querySelector("#btn");
+	/*
+	for(let key in btn){
+		console.log(key+" : "+btn[key])
+	}
+	 */
+	// set vs add
+	// 이벤트: 브라우저에서 발생하는 클라이언트의 동작 같은거.., click, change, dblclick.....
+	// 이벤트 소스: 이벤트가 발생한 DOM 객체  btn
+	// 이벤트 리스너 = 이벤트 헨들러, 이벤트 발생할 때 동작할 call back
+	btn.addEventListener("click", function() {
+		console.log("btn clicked...")
+	})
+	// 콜백과 함께 알아야 할 키워드 2개:this, 이벤트 객체
+	// 이벤트 콜백에는 언제나 event 객체가 전달되고 있다!!!!
+	// 이벤트 객체의 역할: 이벤트에 대한 상세한 정보 포함
+	btn.addEventListener("mouseenter", function(e) {
+		// this: event source
+		console.log("mouse entered", this);
+		for ( let key in e) {
+			console.log(key + " : " + e[key]);
+		}
+	});
+	// eventArea에서 이동하는 마우스의 좌표를 eventArea에 출력하시오.
+	document.querySelector("#eventArea").addEventListener("mousemove",
+			function(e) {
+				// this == e.target
+				this.innerHTML = `x:${e.clientX}, y:${e.clientY}`;
+			})
+
+	//  info에 데이터를 입력하다가 엔터키가 입력되면 alert으로 내용을 출력하자.
+	/*document.querySelector("#info").addEventListener("keyup", function(e) {
+		// 일단 값을 콘솔에 출력해볼까?
+		//console.log(this.value, e.keyCode);
+		if (e.keyCode == 13) {
+			alert(this.value);
+		}
+	})*/
+	// 이렇게 순수하게 사용하는 스크립트를? 바닐라 스크립트라고 한다. 
+
+	// >> 별도의 라이브러리를 활용하자.! --> jQuery
+	$("#info").on("keyup", function(e) {
+		// 일단 값을 콘솔에 출력해볼까?
+		//console.log(this.value, e.keyCode);
+		if (e.keyCode == 13) {
+			alert(this.value);
+		}
+	})
+
+	// web client의 framework 화 --> react, vuejs, angular
+</script>
+</html>
