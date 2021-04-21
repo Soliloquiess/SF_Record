@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.small_nav {
+	display: flex;
+	background: #F8F8F8;
+	font-size: 12px;
+	padding: 10px 0;
+	padding-left: 50px;
+	color: gray;
+}
+
+.small_nav a {
+	color: black;
+	list-style: none;
+}
+
+.signup_form {
+	width: 100%;
+	height: 600px;
+	background: #797979;
+	display: flex;
+	align-items: center;
+}
+
+.signup_form .form_container {
+	border-radius: 10px;
+	background: #FAFAFA;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+	padding: 20px 15px;
+}
+
+.signup_form .form_container p {
+	font-size: 20px;
+}

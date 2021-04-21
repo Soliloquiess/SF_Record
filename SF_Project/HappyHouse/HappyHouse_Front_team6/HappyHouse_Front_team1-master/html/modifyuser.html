@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
+	<link rel="stylesheet" type="text/css" href="../css/signup.css">
+	<link rel="stylesheet" type="text/css" href="../css/footer.css">
+	<script type="text/javascript" src="../js/utils.js"></script>
+</head>
+<body>
+	<header>
+		<div class="header-top">
+			<div>
+				<!-- 로그인 전 -->
+				<button type="button" class="btn btn-dark btn-sm before-login" onClick="location.href='signup.html'">Sign Up</button>
+				<button type="button" class="btn btn-dark btn-sm before-login" data-toggle="dropdown">Login</button>
+				<!-- 로그인 후 -->
+				<button type="button" class="btn btn-dark btn-sm after-login" onClick="javascript:logout();" style="display: none;">Logout</button>
+				<button type="button" class="btn btn-dark btn-sm after-login" onClick="location.href='myinfo.html'" style="display: none;">회원정보</button>
+				<div class="dropdown-menu login">
+					<div class="form-group">
+					  <label for="usr">아이디:</label>
+					  <input type="text" class="form-control" id="usr">
+					</div>
+					<div class="form-group">
+					  <label for="pwd">비밀번호:</label>
+					  <input type="password" class="form-control" id="pwd">
+					</div>
+					<button type="button" class="btn btn-info" onclick="javascript:login();">로그인</button>
+					<button type="button" class="btn btn-info" onclick="location.href='searchPassword.html'">비밀번호 찾기</button>
+				</div>
+			</div>
+		</div>
+		<div class="header-menu">
+			<div class="logo_img">
+				<button type="button" onClick="location.href='main.html'" style="border: 0; outline: 0; background: white;">
+					<img src="../img/logo.jpeg" alt="logo" width="200px">
+				</button>
+			</div>
+			<!-- 로그인 전 -->
+			<div class="menu before-login">
+				<button type="button" class="btn btn-outline-light text-dark btn-lg" onclick="location.href='notice.html'">공지사항</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg" onclick="location.href='news.html?id=1&type=building'">오늘의 뉴스</button>
+			</div>
+			<!-- 로그인 후 -->
+			<div class="menu after-login" style="display: none">
+				<button type="button" class="btn btn-outline-light text-dark btn-lg" onclick="location.href='notice.html'">공지사항</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg" onclick="location.href='news.html?id=1&type=building'">오늘의 뉴스</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">자유글</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">주변탐방</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">관심지역 설정</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">관심지역 둘러보기</button>
+			</div>
+		</div>
+	</header>
+	
+	<div class="small_nav">
+		<div>
+			<a href="main.html">Home</a> >> 회원 가입
+		</div>
+	</div>
+	
+	<div class="signup_form">
+		<div class="form_container">
+			<p>회원 가입</p>
+ 			<form action="#" class="was-validated">
+			  <div class="form-group">
+			    <label for="id">아이디:</label>123
+			  </div>
+			  <div class="form-group">
+			    <label for="pwd">비밀번호:</label>
+			    <input type="password" class="form-control" id="pwd" value="123" name="pswd" required>
+			    <div class="valid-feedback">Valid.</div>
+			    <div class="invalid-feedback">Please fill out this field.</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="username">이름:</label>
+			    <input type="text" class="form-control" id="username" value="이름" name="username" required>
+			    <div class="valid-feedback">Valid.</div>
+			    <div class="invalid-feedback">Please fill out this field.</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="addr">주소:</label>
+			    <input type="text" class="form-control" id="addr" value="주소" name="addr" required>
+			    <div class="valid-feedback">Valid.</div>
+			    <div class="invalid-feedback">Please fill out this field.</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="phone">전화번호:</label>
+			    <input type="text" class="form-control" id="phone" value="전화번호" name="phone" required>
+			    <div class="valid-feedback">Valid.</div>
+			    <div class="invalid-feedback">Please fill out this field.</div>
+			  </div>
+			  <button type="button" class="btn btn-primary" onclick="alert('수정 완료'); location.href='main.html';">수정</button>
+			</form>
+		</div>
+	</div>
+        <footer class="section">
+          <div class="inner clearfix">
+      
+
+            <img src="../img/ssafy_logo.png" width ="40" height="40" style="margin-left: auto; margin-right: auto; display: block;" alt="projects">
+
+            <ul class="site-links float--right">
+              <li><a href="#">Contact&nbsp;HAPPYHOUSE</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Training</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+      
+            <ul class="site-links float--left">
+              <li>HAPPYHOUSE.</li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Status</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </div>
+        </footer>
+  
+    <footer class="footer text-center"></footer>
+</body>
+</html>

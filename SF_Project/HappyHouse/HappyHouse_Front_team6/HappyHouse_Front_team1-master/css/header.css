@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.header-top {
+	width: 100%;
+	text-align: right;
+	padding: 10px;
+	background: #2E3637;
+}
+
+.header-top .login {
+	padding: 10px;
+	background: #2E3637;
+	color: white;
+	width: 300px;
+	height: 250px;
+}
+
+.header-menu {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	align-items: center;
+}
+
+.header-menu .logo_img {
+	width: 200px;
+}

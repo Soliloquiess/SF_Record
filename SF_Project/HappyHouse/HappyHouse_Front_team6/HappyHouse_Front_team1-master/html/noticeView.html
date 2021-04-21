@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
+	<link rel="stylesheet" type="text/css" href="../css/noticeView.css">
+	<link rel="stylesheet" type="text/css" href="../css/footer.css">
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var url = location.href;
+			var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split();
+			var id = parameters[0].split("=")[1];
+			$.ajax({
+				url: '../data/notice.json',
+				dataType: 'json',
+				success: function(result) {
+					var title = result[id-1].title;
+					var desc = result[id-1].desc;
+					
+					$("#title").html("제목: " + title);
+					$("#desc").html("제목: " + desc);
+				}
+			});	
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<div class="header-top">
+			<div>
+				<!-- 로그인 후 -->
+				<button type="button" class="btn btn-dark btn-sm after-login" onClick="javascript:logout();">Logout</button>
+				<button type="button" class="btn btn-dark btn-sm after-login">회원정보</button>
+			</div>
+		</div>
+		<div class="header-menu">
+			<div class="logo_img">
+				<button type="button" onClick="location.href='main.html'" style="border: 0; outline: 0; background: white;">
+					<img src="../img/logo.jpeg" alt="logo" width="200px">
+				</button>
+			</div>
+			<!-- 로그인 후 -->
+			<div class="menu after-login">
+				<button type="button" class="btn btn-outline-light text-dark btn-lg" onclick="location.href='notice.html'">공지사항</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg" onclick="location.href='news.html?id=1&type=building'">오늘의 뉴스</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">자유글</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">주변탐방</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">관심지역 설정</button>
+				<button type="button" class="btn btn-outline-light text-dark btn-lg">관심지역 둘러보기</button>
+			</div>
+		</div>
+	</header>
+	
+	<div class="small_nav">
+		<div>
+			<a href="main.html">Home</a> >> 회원 정보
+		</div>
+	</div>
+	
+	<div class="signup_form">
+		<div class="form_container">
+			<p>공지 사항 보기</p>
+ 			<form action="#" class="was-validated">
+			  <div class="form-group">
+			    <label id="title" for="title">제목: 123</label>
+			  </div>
+			  <div class="form-group">
+			    <label id="desc" for="desc">내용: 123</label>
+			  </div>
+			  <button type="button" class="btn btn-primary" onclick="location.href='main.html'">확인</button>
+			</form>
+		</div>
+	</div>
+        <footer class="section">
+          <div class="inner clearfix">
+      
+
+            <img src="../img/ssafy_logo.png" width ="40" height="40" style="margin-left: auto; margin-right: auto; display: block;" alt="projects">
+
+            <ul class="site-links float--right">
+              <li><a href="#">Contact&nbsp;HAPPYHOUSE</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Training</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+      
+            <ul class="site-links float--left">
+              <li>HAPPYHOUSE.</li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Status</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </div>
+        </footer>
+  
+    <footer class="footer text-center"></footer>
+</body>
+</html>
